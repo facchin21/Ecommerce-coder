@@ -1,4 +1,4 @@
-@import '../global/variables';
+@import '../global/styled';
 
 // Contenedor de la navbar
 .navbar__container {
@@ -12,6 +12,7 @@
 .navbar__logo-title {
     font-size: 2.1rem;
     font-weight: 600;
+    cursor: pointer;
 }
 
 // Lista principal
@@ -32,7 +33,7 @@
 // Enlace principal con barra inferior en hover
 .navbar__link {
     text-decoration: none;
-    color: #333;
+    color: $text-link;
     padding: 0.5rem 1rem;
     font-weight: 400;
     position: relative;
@@ -87,7 +88,7 @@
 // Enlace de la subcategoría
 .navbar__sublink {
     text-decoration: none;
-    color: #333;
+    color: $text-link;
     font-size: 1.1rem;
     font-weight: 600;
 }
