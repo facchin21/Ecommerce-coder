@@ -1,0 +1,123 @@
+@import '../global/variables';
+
+// Contenedor de la navbar
+.navbar__container {
+    display: flex;
+    justify-content: space-around ;
+    align-items: center;
+    padding: 2rem 8rem;
+}
+
+// Logo
+.navbar__logo-title {
+    font-size: 2.1rem;
+    font-weight: 600;
+}
+
+// Lista principal
+.navbar__list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    list-style: none;
+}
+
+// Item principal
+.navbar__item {
+    position: relative;
+    margin: 0; 
+}
+
+// Enlace principal con barra inferior en hover
+.navbar__link {
+    text-decoration: none;
+    color: #333;
+    padding: 0.5rem 1rem;
+    font-weight: 400;
+    position: relative;
+    display: inline-block;
+
+    // Barra inferior oculta
+    &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0;
+        height: 2px;
+        background-color: $text-color;
+        transition: width 0.3s ease-in-out;
+    }
+
+    // Al hacer hover, mostrar la barra inferior
+    &:hover::after {
+        width: 100%;
+    }
+}
+// Sublista
+.navbar__sublist {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100vw; // Ocupa el 100% del ancho de la pantalla
+    background-color: $secondary-color;
+    padding: 3rem 0;
+    margin: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    z-index: 100;
+    transform: translateX(-54%); // Alinea la sublista al centro
+    text-align: center;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+// Mostrar sublista al hacer hover en el item principal
+.navbar__item:hover .navbar__sublist {
+    display: flex;
+}
+
+// Subitem
+.navbar__subitem {
+    padding: 0.5rem 1rem;
+}
+
+// Enlace de la subcategoría
+.navbar__sublink {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+// Enlaces de sub sub categoria
+.navbar__subsublink{
+    font-size: 1rem;
+    &:hover{
+        color: $text-color;
+    }
+}
+
+// estilos de marcador cantidades del cart
+.cart-widget {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    .cart__item{
+        z-index: 20;
+        cursor: pointer;
+    }
+    .notification-badge{
+        position: absolute;
+        top: -10px;
+        right: -20px;
+        background-color: $details-color; 
+        color: $text-color; 
+        border-radius: 50%;
+        padding: 0.2rem 0.8rem;
+        font-size: 0.8rem;
+        z-index: 10;
+    }
+}
