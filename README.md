@@ -1,4 +1,4 @@
-# 🛒 E-commerce CoderHouse
+# 🛒 CoderMarket
 
 Este proyecto es una tienda de E-commerce creada como parte de las entregas del curso **ReactJS** de **CoderHouse**.
 El objetivo de esta primera entrega es implementar componentes esenciales para la estructura inicial del proyecto.
