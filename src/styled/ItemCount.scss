@@ -1,0 +1,36 @@
+@import '../global/styled';
+
+.container__count{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    padding: 10px 20px;
+    margin-bottom: 1rem;
+    border: 1px solid $text-color;
+    border-radius: 6px;
+}
+.count__decrement,
+.count__increment{
+    cursor: pointer;
+    transition: all 300ms ease-in-out;
+
+    &:hover{
+        color: $details-color;
+    }
+}
+
+.button__count-add{
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 8px;
+    color : $primary-color;
+    background-color: $text-color;
+    transition: all 500ms ease-in-out;
+
+    &:hover{
+        background-color: $details-color;
+        color: $text-color;
+    }
+}
