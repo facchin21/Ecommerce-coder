@@ -55,7 +55,7 @@
             font-weight: 600;
             margin-bottom: 8px;
             color: #333;
-            @media (max-width: 480px) {
+            @media (max-width: 768px) {
                 font-size: 1.2rem;
             }
         }
@@ -65,8 +65,8 @@
             color: #777;
             margin-bottom: 12px;
 
-            @media (max-width: 480px) {
-                font-size: 0.8rem; 
+            @media (max-width: 768px) {
+                font-size: 0.5rem; 
             }
         }
 
@@ -75,7 +75,7 @@
             font-weight: 500;
             color: $text-color;
 
-            @media (max-width: 480px) {
+            @media (max-width: 768px) {
                 font-size: 1rem;
             }
         }

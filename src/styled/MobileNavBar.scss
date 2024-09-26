@@ -35,6 +35,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-transform: capitalize;
 
     width: 300px;
     height: 100vh;
@@ -51,7 +52,7 @@
     left: 0;
 }
 .mobile-navbar__link{
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     text-align: center;
     transition: all 300ms ease;
     &:hover{
@@ -68,11 +69,15 @@
     gap: 1rem;
 }
 .mobile-navbar__sublink{
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+    transition: all 300ms ease-in-out;
+    &:hover{
+        color: $details-color;
+    }
 }
 .mobile-navbar__subsublist{
     width: 100%;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
 }
 .mobile-navbar__item{
     display: flex;
