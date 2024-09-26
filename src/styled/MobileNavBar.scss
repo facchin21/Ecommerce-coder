@@ -1,0 +1,95 @@
+@import '../global/styled.scss';
+
+.mobile-navbar__logo-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 4rem;
+}
+.mobile-navbar__logo-title{
+    font-size: 2rem;
+    font-weight: 600;
+}
+.mobile-navbar__menu-button{
+    font-size: 2rem;
+    cursor: pointer;
+    transition: all 300ms ease;
+    &:hover{
+        color: $details-color;
+    }
+}
+.button__close{
+    position: absolute;
+    cursor: pointer;
+    font-size: 2rem;
+    top: 25px;
+    left: 250px;
+    transition: all 300ms ease-in-out;
+    &:hover{
+        color: $details-color;
+    }
+}
+.mobile-navbar__list {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 300px;
+    height: 100vh;
+    top: 0;
+    bottom: 0;
+    z-index: 20;
+    left: -300px; 
+    color: $primary-color;
+    background-color: $text-link;
+    transition: left 300ms ease-in-out;
+}
+
+.mobile-navbar__list.open {
+    left: 0;
+}
+.mobile-navbar__link{
+    font-size: 1.3rem;
+    text-align: center;
+    transition: all 300ms ease;
+    &:hover{
+        color: $details-color;
+    }
+}
+.mobile-navbar__sublist{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0.5rem 1rem;
+    gap: 1rem;
+}
+.mobile-navbar__sublink{
+    font-size: 1.2rem;
+}
+.mobile-navbar__subsublist{
+    width: 100%;
+    font-size: 0.9rem;
+}
+.mobile-navbar__item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.mobile-navbar__subsubitem{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+.mobile-navbar__subsublink{
+    color: $primary-color;
+    transition : 300ms ease-in-out;
+    &:hover{
+        color: $details-color;
+    }
+}

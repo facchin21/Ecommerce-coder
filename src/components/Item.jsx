@@ -1,24 +1,19 @@
 import React from 'react'
+import '../styled/Item.scss'
 
 export const Item = ({product}) => {
-  /*Object to print
-  {
-    id: 1,
-    title: "Remera básica blanca",
-    description: "Remera de algodón 100%, ideal para el día a día.",
-    price: 3500,
-    pictureUrl: "https://via.placeholder.com/150/FFFFFF?text=Remera+Blanca",
-  }*/
 
   return (
-    <article key={product.id}>
-      <div>
-        <img src={product.pictureUrl} alt={product.title}/>
+    <article key={product.id} className='article__card'>
+      <div className='article__container-img'>
+        <img src={product.pictureUrl}
+        alt={product.title}
+        className='article__img'/>
       </div>
-      <div>
-        <h2>{product.title}</h2>
-        <p>{product.description}</p>
-        <span>{product.price}</span>
+      <div className='article__container'>
+        <h2 className='article__title'>{product.title}</h2>
+        <p className='article__descripction'>{product.description}</p>
+        <span className='article__price'>${product.price}</span>
       </div>
     </article>
   )
