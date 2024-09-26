@@ -1,0 +1,17 @@
+@import '../global/styled';
+
+.ItemList__container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 4rem 8rem;
+    & h1{
+        text-align: center;
+        & span{
+            color: $details-color;
+        }
+    }
+
+}

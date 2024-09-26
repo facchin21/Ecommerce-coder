@@ -1,6 +1,7 @@
-import '../styled/Modal.scss'
+import '../styled/ModalError.scss'
 
-export const Modal = ({message, onClose}) =>{
+
+export const ModalError = ({message, onClose}) =>{
     return(
         <div className='modal__backdrop'>
             <div className='modal__content'>

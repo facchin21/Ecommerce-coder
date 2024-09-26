@@ -1,17 +1,40 @@
-@import '../global/styled';
+@import '../global/styled.scss';
 
-.ItemList__container{
+.header__item{
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
+    padding: 25px 0;
     width: 100%;
-    padding: 4rem 8rem;
-    & h1{
-        text-align: center;
-        & span{
-            color: $details-color;
-        }
-    }
-
 }
+.header__title{
+    font-family: 'Poppins';
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    width: 100%;
+}
+.span__error{
+    display: block;
+    font-size: 1.6rem;
+    font-weight: 400;
+    text-align: center;
+    width: 100%;
+}
+.container__list {
+    display: grid;
+    place-content: center;
+    width: 80%;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 26px; 
+    padding: 20px;
+  
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  
+    @media (max-width: 480px) {
+      grid-template-columns: 1fr;
+    }
+  }

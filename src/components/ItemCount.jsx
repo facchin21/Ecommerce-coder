@@ -1,6 +1,6 @@
 import { useState } from "react";
 import '../styled/ItemCount.scss'
-import { Modal } from "./Modal";
+import { ModalError } from "./ModalError";
 
 export const ItemCount = () => {
     const [count, setCount] = useState(0);
@@ -37,7 +37,7 @@ export const ItemCount = () => {
             <button className="button__count-add">Agregar al Carrito</button>
 
             {showModal && (
-                <Modal
+                <ModalError
                     message={`No puedes agregar más de ${stock} productos.`}
                     onClose={closeModal}
                 />
