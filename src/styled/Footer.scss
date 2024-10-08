@@ -1,0 +1,37 @@
+@import '../global/styled';
+
+
+.footer__container{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 6rem 4rem;
+    color: $primary-color;
+    background-color: $text-color;
+    margin: 0 auto;
+
+    @media (max-width: 568px) {
+        flex-direction: column;
+        padding: 4rem 2rem;
+    }
+}
+.container__redes,
+.container__nosotros{
+    width: 100%;
+    text-align: center;
+}
+.nosotros__title,
+.redes__title{
+    font-size: 1.4rem;
+    margin-bottom: 0.3rem;
+}
+
+.nosotros__link,
+.redes__link{
+    font-size: 1rem;
+    transition: all 300ms ease-in;
+
+    &:hover{
+        color: $details-color;
+    }
+}

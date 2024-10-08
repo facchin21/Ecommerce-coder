@@ -7,7 +7,7 @@ export const CartWidget = () => {
 
   return (
     <div className="cart-widget">
-        <FaShoppingCart size={24} className="cart__item"/>
+        <FaShoppingCart size={24} className="cart__item" aria-label="Cart"/>
         <span className="notification-badge">{amount}</span>
     </div>
   )
