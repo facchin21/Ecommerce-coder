@@ -2,6 +2,7 @@ import { itemsNavBar } from '../data/itemsNavBar';
 import { CartWidget } from './CartWidget';
 import '../styled/MobileNavBar.scss';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export const MobileNavBar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -22,23 +23,23 @@ export const MobileNavBar = () => {
                 <span className='button__close' onClick={() => setIsOpen(false)}>&times;</span>
                 {itemsNavBar.map(item => (
                     <li key={item.id} className='mobile-navbar__item'>
-                        <a href={item.name} className='mobile-navbar__link'>
+                        <Link to={item.link} className='mobile-navbar__link'>
                             {item.name}
-                        </a>
+                        </Link>
                         {item.subcategorias.length > 0 && (
                             <ul className='mobile-navbar__sublist'>
                                 {item.subcategorias.map(sub => (
                                     <li key={sub.id} className='mobile-navbar__subitem'>
-                                        <a href={sub.name} className='mobile-navbar__sublink'>
+                                        <Link to={`/category/${sub.name}`} className='mobile-navbar__sublink'>
                                             {sub.name}
-                                        </a>
+                                        </Link>
                                         {sub.subcategorias?.length > 0 && (
                                             <ul className='mobile-navbar__subsublist'>
                                                 {sub.subcategorias.map(subsub => (
                                                     <li key={subsub.id} className='mobile-navbar__subsubitem'>
-                                                        <a href={subsub.name} className='mobile-navbar__subsublink'>
+                                                        <Link to={`/category/${subsub.name}`} className='mobile-navbar__subsublink'>
                                                             {subsub.name}
-                                                        </a>
+                                                        </Link>
                                                     </li>
                                                 ))}
                                             </ul>

@@ -6,6 +6,7 @@ export const NotFound = () => {
 
         <div className='container__notFound'>
             <span className='span__notFound'>Lo siento</span>
+            <span>❌</span>
             <h1 className='text__notFound'>
                 No se pudo encontrar esta ruta.
             </h1>

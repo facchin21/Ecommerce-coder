@@ -4,6 +4,7 @@ import { CartWidget } from './CartWidget';
 import { MobileNavBar } from './MobileNavBar'
 import { NavBarList } from './NavBarList'
 import '../styled/NavBar.scss';
+import { Link } from 'react-router-dom';
 
 export const NavBar = () => {
     const [isMobile, setIsMobile] = useState(window.screen.width < 768)
@@ -25,7 +26,9 @@ export const NavBar = () => {
         ) :(
             <nav className='navbar__container'>
                 <div className='navbar__logo-container'>
-                    <h1 className='navbar__logo-title'>CoderMarket</h1>
+                    <Link to="/">
+                        <h1 className='navbar__logo-title'>CoderMarket</h1>
+                    </Link>
                 </div>
                 <NavBarList items={itemsNavBar} /> {/* Usar el componente de listado */}
                 <CartWidget />

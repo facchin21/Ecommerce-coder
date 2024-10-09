@@ -3,13 +3,9 @@
 // Contenedor de la navbar
 .navbar__container {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-around ;
     align-items: center;
     padding: 2rem 8rem;
-
-    @media (max-width: 768px) {
-        padding: 1rem 2rem; // Ajustar para pantallas móviles
-    }
 }
 
 // Logo
@@ -32,7 +28,7 @@
 // Item principal
 .navbar__item {
     position: relative;
-    margin: 0;
+    margin: 0; 
 }
 
 // Enlace principal con barra inferior en hover
@@ -61,35 +57,28 @@
         width: 100%;
     }
 }
-
 // Sublista
 .navbar__sublist {
     display: none;
     position: absolute;
     top: 100%;
     left: 0;
-    min-width: 200px; // Evita usar 100vw, usa un ancho mínimo adecuado al contenido
+    width: 100vw; // Ocupa el 100% del ancho de la pantalla
     background-color: $secondary-color;
-    padding: 1rem 0;
+    padding: 3rem 0;
     margin: 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     list-style: none;
     z-index: 100;
-    opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-
-    @media (max-width: 768px) {
-        width: 100%;
-        transform: translateX(0);
-    }
+    transform: translateX(-54%); // Alinea la sublista al centro
+    text-align: center;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 // Mostrar sublista al hacer hover en el item principal
 .navbar__item:hover .navbar__sublist {
-    display: block;
-    opacity: 1;
-    transform: translateY(0);
+    display: flex;
 }
 
 // Subitem
@@ -104,61 +93,33 @@
     font-size: 1.1rem;
     font-weight: 600;
 }
-
-// Enlaces de sub sub categoría
-.navbar__subsublink {
+// Enlaces de sub sub categoria
+.navbar__subsublink{
     font-size: 1rem;
-
-    &:hover {
+    &:hover{
         color: $text-color;
     }
 }
 
-// Carrito y marcador de cantidad
+// estilos de marcador cantidades del cart
 .cart-widget {
     position: relative;
     display: flex;
     align-items: center;
 
-    .cart__item {
+    .cart__item{
         z-index: 20;
         cursor: pointer;
     }
-
-    .notification-badge {
+    .notification-badge{
         position: absolute;
         top: -10px;
-        right: -10px; // Ajustado para pantallas pequeñas
-        background-color: $details-color;
-        color: $text-color;
+        right: -20px;
+        background-color: $details-color; 
+        color: $text-color; 
         border-radius: 50%;
-        padding: 0.2rem 0.5rem;
+        padding: 0.2rem 0.8rem;
         font-size: 0.8rem;
         z-index: 10;
-
-        @media (max-width: 768px) {
-            top: -5px;
-            right: -5px; // Ajuste en pantallas pequeñas
-        }
     }
-}
-
-// Submenús anidados con animación suave
-.navbar__subitem:hover .navbar__subsublist {
-    display: block;
-    opacity: 1;
-    transform: translateY(0);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.navbar__subsublist {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: $secondary-color;
-    padding: 0.5rem;
-    opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
 }

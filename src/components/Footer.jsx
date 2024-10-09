@@ -1,36 +1,10 @@
+import { dataRedes, dataNosotros } from '../data/Footer.data'
 import { Link } from "react-router-dom"
 import "../styled/Footer.scss"
 
+
 export const Footer = () => {
-    const dataRedes = [
-        {
-            id: '01',
-            name: 'Instagram',
-            link: 'https://www.instagram.com/programate__/'
-        },
-        {
-            id: '02',
-            name: 'TikTok',
-            link: 'https://www.tiktok.com/@programate_'
-        },
-        {
-            id: '03',
-            name: 'Youtube',
-            link: 'https://www.youtube.com/@Programate_'
-        }
-    ]
-    const dataNosotros = [
-        {
-            id: '01',
-            name: "Sobre Nosotros",
-            link: '/nosotros'
-        },
-        {
-            id: '02',
-            name: 'Contacto',
-            link: '/contacto'
-        }
-    ]
+    
     return (
         <footer className="footer__container">
             <div className="container__redes">
@@ -54,8 +28,7 @@ export const Footer = () => {
                         dataNosotros.map(data => (
                             <li key={data.id}>
                                 <Link to={data.link}
-                                className="nosotros__link"
-                                target="_blank">
+                                className="nosotros__link">
                                     {data.name}
                                 </Link>
                             </li>
