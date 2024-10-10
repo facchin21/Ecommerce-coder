@@ -1,5 +1,7 @@
 import { ContainerImageDetailItem } from './ContainerImageDetailItem';
+import { ContainerTextDetailItem } from './ContainerTextDetailItem';
 import React, { useEffect, useState } from 'react';
+import '../styled/ItemListDetailContainer.scss'
 import { useParams } from 'react-router-dom';
 import { useFetch } from '../hooks/useFetch';
 
@@ -24,8 +26,12 @@ export const ItemListDetailContainer = () => {
   console.log(product);
 
   return (
-    <article>
+    <article className='container'>
       <ContainerImageDetailItem product={product} />
+      <ContainerTextDetailItem product={product} />
     </article>
   );
 }
+// @media (max-width : 820px){
+        
+// }

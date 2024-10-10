@@ -1,0 +1,74 @@
+@import '../global/styled';
+
+.container__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0 4rem;
+    width: 100%;
+}
+
+.item__title {
+    font-size: 2.8rem;
+    font-weight: bold;
+    @media (max-width: 986px) {
+        font-size: 2rem;
+    }
+}
+
+.item__price {
+    font-size: 3.2rem;
+    font-weight: lighter;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: $text-color;
+    @media (max-width: 986px) {
+        font-size: 2.3rem;
+    }
+}
+
+.item__pagos {
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 1rem;
+}
+.container__talles{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 2rem 0;
+    gap: 1rem;
+    @media (max-width: 986px) {
+        margin: 1rem 0;
+    }
+}
+.container__talle {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: 2px solid $text-color;
+    cursor: pointer;
+
+    @media (max-width: 986px) {
+        padding: 0.3rem 0.7rem;
+    }
+}
+
+.button__add-cart {
+    background-color: $text-color;
+    color: $primary-color;
+    padding: 1rem 2.3rem;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: 300ms ease-in-out;
+
+    &:hover{
+        color: $text-color;
+        background-color: $details-color;
+    }
+    @media (max-width: 986px) {
+        padding: 0.5rem 2rem;
+        width: 100%;
+    }
+}
