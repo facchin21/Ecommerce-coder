@@ -32,6 +32,3 @@ export const ItemListDetailContainer = () => {
     </article>
   );
 }
-// @media (max-width : 820px){
-        
-// }

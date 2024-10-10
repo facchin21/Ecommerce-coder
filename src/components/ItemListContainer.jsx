@@ -8,38 +8,34 @@ import { Loader } from './Loader'
 export const ItemListContainer = ({ greeting }) => {
   const { allProducts, loading } = useFetch()
   const [products, setProducts] = useState([])
-  const { categoryId, subCategoryId } = useParams()
+  const { categoryId, subcategoryId } = useParams()
 
   useEffect(() => {
-    let productsFilter = allProducts;
-
-    if (categoryId) {
-      productsFilter = productsFilter.filter(product => 
-        product.category.toLowerCase() === categoryId.toLowerCase()
+    if (!allProducts.length) return; 
+  
+    const productsFilter = allProducts
+      .filter(product => 
+        !categoryId || product.category?.toLowerCase() === categoryId.toLowerCase()
+      )
+      .filter(product => 
+        !subcategoryId || product.subcategory?.toLowerCase() === subcategoryId.toLowerCase()
       );
-    }
-    
-    if (subCategoryId) {
-      productsFilter = productsFilter.filter(product => 
-        product.subcategory.toLowerCase() === subCategoryId.toLowerCase()
-      );
-    }
-
+  
     setProducts(productsFilter);
-  }, [categoryId, subCategoryId, allProducts]);
+  }, [categoryId, subcategoryId, allProducts]);
 
   if (loading) {
     return (
-        <div style={{position : 'absolute' , top: '40%', right : '45%'}}>
-          <Loader/>
-        </div>
-    )
+      <div style={{ position: 'absolute', top: '40%', right: '45%' }}>
+        <Loader />
+      </div>
+    );
   }
 
   return (
     <div className="ItemList__container">
       <h1>Bienvenidos a <span>{greeting}</span> !!</h1>
-      <ItemList products={products} loading={loading}/>
+      <ItemList products={products} loading={loading} />
     </div>
   )
 }

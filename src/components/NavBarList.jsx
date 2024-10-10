@@ -21,7 +21,7 @@ export const NavBarList = ({ items }) => {
                                         <ul className='navbar__subsublist'>
                                             {sub.subcategorias.map(subsub => (
                                                 <li key={subsub.id} className='navbar__subsubitem'>
-                                                    <Link to={`/category/${subsub.name}`} className='navbar__subsublink'>
+                                                    <Link to={`/category/${sub.name}/${subsub.name}`} className='navbar__subsublink'>
                                                         {subsub.name}
                                                     </Link>
                                                 </li>

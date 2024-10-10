@@ -37,7 +37,7 @@ export const MobileNavBar = () => {
                                             <ul className='mobile-navbar__subsublist'>
                                                 {sub.subcategorias.map(subsub => (
                                                     <li key={subsub.id} className='mobile-navbar__subsubitem'>
-                                                        <Link to={`/category/${subsub.name}`} className='mobile-navbar__subsublink'>
+                                                        <Link to={`/category/${sub.name}/${subsub.name}`} className='mobile-navbar__subsublink'>
                                                             {subsub.name}
                                                         </Link>
                                                     </li>
