@@ -1,5 +1,6 @@
 import React from 'react'
 import '../styled/ContainerTextDetailItem.scss'
+import { PaymentMethod } from './PaymentMethod'
 
 export const ContainerTextDetailItem = ({ product }) => {
     return (
@@ -7,7 +8,7 @@ export const ContainerTextDetailItem = ({ product }) => {
             <h1 className='item__title'>{product?.title}</h1>
             <h2 className='item__price'>${product?.price}</h2>
             {/* Hay que crear el componente con el modal👇🏼 */}
-            <span className='item__pagos'>Medios de pago</span>
+            <PaymentMethod/>
             <div className='container__talles'>
                 <div className='container__talle'>
                     <span>XS</span>

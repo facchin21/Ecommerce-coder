@@ -1,0 +1,60 @@
+@import "../global/styled.scss";
+
+.item__pagos {
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 1rem;
+}
+
+
+// Modal
+.modal__backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.modal__content {
+    position: relative;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 500px;
+    height: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal__close {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    cursor: pointer;
+    border: none;
+    margin-top: 10px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: white;
+    background-color: #ff4d4d;
+
+    &:hover{
+        background-color: #ff3333;
+    }
+}
+
+.modal__container-icon{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    height: 100%;
+    gap: 1rem;
+}

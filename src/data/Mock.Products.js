@@ -230,7 +230,7 @@ export const products = [
   },
   {
     id: 1,
-    name: "Camiseta Niño",
+    title: "Camiseta Niño",
     category: "niño",
     price: 15.99,
     image: "https://example.com/camiseta_nino.jpg",
@@ -238,7 +238,7 @@ export const products = [
   },
   {
     id: 2,
-    name: "Pantalón Niño",
+    title: "Pantalón Niño",
     category: "niño",
     price: 25.99,
     image: "https://example.com/pantalon_nino.jpg",
@@ -246,7 +246,7 @@ export const products = [
   },
   {
     id: 3,
-    name: "Zapatos Niño",
+    title: "Zapatos Niño",
     category: "niño",
     price: 20.99,
     image: "https://example.com/zapatos_nino.jpg",
@@ -254,7 +254,7 @@ export const products = [
   },
   {
     id: 4,
-    name: "Vestido Niña",
+    title: "Vestido Niña",
     category: "niña",
     price: 30.99,
     image: "https://example.com/vestido_nina.jpg",
@@ -262,7 +262,7 @@ export const products = [
   },
   {
     id: 5,
-    name: "Falda Niña",
+    title: "Falda Niña",
     category: "niña",
     price: 18.99,
     image: "https://example.com/falda_nina.jpg",
@@ -270,7 +270,7 @@ export const products = [
   },
   {
     id: 6,
-    name: "Camiseta Niña",
+    title: "Camiseta Niña",
     category: "niña",
     price: 15.99,
     image: "https://example.com/camiseta_nina.jpg",
