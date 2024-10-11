@@ -1,11 +1,12 @@
 import { useState } from "react";
 import styles from '../styled/ItemCount.module.scss'
 import { ModalError } from "./ModalError";
+import { toast, ToastContainer } from "react-toastify";
 
-export const ItemCount = () => {
+export const ItemCount = ({ stock }) => {
+    console.log("STOCK", {stock})
     const [count, setCount] = useState(0);
     const [showModal, setShowModal] = useState(false);
-    const stock = 5;
 
     const onAdd = () => {
         if (count < stock) {
@@ -25,6 +26,9 @@ export const ItemCount = () => {
         setShowModal(false);
     };
 
+    const addToCart = () => {
+        
+    }
     return (
         <>
             <span>Cantidad:</span>
@@ -35,7 +39,8 @@ export const ItemCount = () => {
                 </span>
                 <span className={styles.count__increment} onClick={onAdd}> + </span>
             </div>
-            <button className={styles.button__count_add}>Agregar al Carrito</button>
+            <button className={styles.button__count_add}
+            onClick={addToCart}>Agregar al Carrito</button>
 
             {showModal && (
                 <ModalError

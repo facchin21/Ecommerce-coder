@@ -5,12 +5,15 @@ import { NotFound } from "./components/NotFound"
 import { Contact } from "./components/Contact"
 import { About } from "./components/About"
 import { Layout } from "./layout/Layout"
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify"
 
 function App() {
   const title = 'CoderMarket'
   return (
     <BrowserRouter>
       <Layout>
+        <ToastContainer />
         <Routes>
           {/* Rutas para la entrega */}
           <Route path="/" element={<ItemListContainer greeting={title}/>}/>

@@ -1,0 +1,11 @@
+@import '../global/styled.scss';
+
+.size__container{
+    cursor: pointer;
+    transition : all 100ms ease-in-out;
+
+    &:hover{
+        color: $text-color;
+        font-weight: 600;
+    }
+}
