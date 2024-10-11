@@ -18,10 +18,12 @@ function App() {
           {/* Rutas para la entrega */}
           <Route path="/" element={<ItemListContainer greeting={title}/>}/>
           <Route path="/item/:id" element={<ItemListDetailContainer/>}/>
-          <Route path="/category/:categoryId" element={<ItemListContainer greeting={title}/>}/>
-            {/* Rutas Extras */}
+          <Route path="/category/:categoryId" 
+            element={<ItemListContainer greeting={title}/>}/>
+          {/* Rutas Extras */}
           <Route path="/category/" element={<ItemListContainer greeting={title}/>}/>
-          <Route path="/category/:categoryId/:subcategoryId" element={<ItemListContainer greeting={title}/>}/>
+          <Route path="/category/:categoryId/:subcategoryId" 
+            element={<ItemListContainer greeting={title}/>}/>
           <Route path="/nosotros" element={<About/>}/>
           <Route path="/contacto" element={<Contact/>}/>
           <Route path="*" element={<NotFound/>}/>

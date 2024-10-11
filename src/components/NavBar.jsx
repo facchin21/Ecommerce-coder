@@ -1,9 +1,9 @@
 import { itemsNavBar } from '../data/itemsNavBar'
+import styles from '../styled/NavBar.module.scss';
+import { MobileNavBar } from './MobileNavBar'
 import { useEffect, useState } from 'react';
 import { CartWidget } from './CartWidget';
-import { MobileNavBar } from './MobileNavBar'
 import { NavBarList } from './NavBarList'
-import styles from '../styled/NavBar.module.scss';
 import { Link } from 'react-router-dom';
 
 export const NavBar = () => {

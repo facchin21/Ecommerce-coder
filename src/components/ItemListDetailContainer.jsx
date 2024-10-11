@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import styles from '../styled/ItemListDetailContainer.module.scss'
 import { useParams } from 'react-router-dom';
 import { useFetch } from '../hooks/useFetch';
+import { Loader } from './Loader';
 
 export const ItemListDetailContainer = () => {
   const [product, setProduct] = useState(null);
@@ -23,12 +24,19 @@ export const ItemListDetailContainer = () => {
     }
   }, [id, allProducts]);
 
-  console.log(product);
-
   return (
     <article className={styles.container}>
-      <ContainerImageDetailItem product={product} />
-      <ContainerTextDetailItem product={product} />
+      {product ? (
+        <>
+          <ContainerImageDetailItem product={product} />
+          <ContainerTextDetailItem product={product} />
+        </>
+        ):
+      (
+        <div style={{ position: 'absolute', top: '40%', right: '45%' }}>
+          <Loader/>
+        </div>
+      )}
     </article>
   );
 }

@@ -1,28 +1,10 @@
-import { useParams } from 'react-router-dom'
-import { useFetch } from '../hooks/useFetch'
-import { useEffect, useState } from 'react'
-import styles from '../styled/ItemListContainer.module.scss'
-import { ItemList } from './ItemList'
-import { Loader } from './Loader'
+import { useFilteredProducts } from '../hooks/useFilteredProducts';
+import styles from '../styled/ItemListContainer.module.scss';
+import { ItemList } from './ItemList';
+import { Loader } from './Loader';
 
 export const ItemListContainer = ({ greeting }) => {
-  const { allProducts, loading } = useFetch()
-  const [products, setProducts] = useState([])
-  const { categoryId, subcategoryId } = useParams()
-
-  useEffect(() => {
-    if (!allProducts.length) return; 
-  
-    const productsFilter = allProducts
-      .filter(product => 
-        !categoryId || product.category?.toLowerCase() === categoryId.toLowerCase()
-      )
-      .filter(product => 
-        !subcategoryId || product.subcategory?.toLowerCase() === subcategoryId.toLowerCase()
-      );
-  
-    setProducts(productsFilter);
-  }, [categoryId, subcategoryId, allProducts]);
+  const { products, message, loading } = useFilteredProducts();
 
   if (loading) {
     return (
@@ -35,7 +17,10 @@ export const ItemListContainer = ({ greeting }) => {
   return (
     <div className={styles.ItemList__container}>
       <h1>Bienvenidos a <span>{greeting}</span> !!</h1>
-      <ItemList products={products} loading={loading} />
+      <ItemList
+        products={products}
+        loading={loading}
+        message={message} />
     </div>
-  )
-}
+  );
+};
