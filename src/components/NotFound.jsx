@@ -1,17 +1,17 @@
 import { Link } from 'react-router-dom'
-import '../styled/NotFound.scss'
+import styles from '../styled/NotFound.module.scss'
 
 export const NotFound = () => {
     return (
 
-        <div className='container__notFound'>
-            <span className='span__notFound'>Lo siento</span>
+        <div className={styles.container__notFound}>
+            <span className={styles.span__notFound}>Lo siento</span>
             <span>❌</span>
-            <h1 className='text__notFound'>
+            <h1 className={styles.text__notFound}>
                 No se pudo encontrar esta ruta.
             </h1>
-            <span className='span__volver'>Te sujerimos volver al inicio👇🏼</span>
-            <Link to={'/'} className='button__toHome'>
+            <span className={styles.span__volver}>Te sujerimos volver al inicio👇🏼</span>
+            <Link to={'/'} className={styles.button__toHome}>
                 Volver al Inicio
             </Link>
         </div>

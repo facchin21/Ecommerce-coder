@@ -1,6 +1,6 @@
 import { itemsNavBar } from '../data/itemsNavBar';
 import { CartWidget } from './CartWidget';
-import '../styled/MobileNavBar.scss';
+import styles from '../styled/MobileNavBar.module.scss';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -12,32 +12,34 @@ export const MobileNavBar = () => {
     };
 
     return (
-        <nav className='mobile-navbar__container'>
-            <div className='mobile-navbar__logo-container'>
-                <h1 className='mobile-navbar__logo-title'>CoderMarket</h1>
-                <button className='mobile-navbar__menu-button' onClick={toggleMenu}>
-                    <span className='menu-icon'>&#9776;</span> {/* Ícono de menú */}
+        <nav className={styles.mobile_navbar__container}>
+            <div className={styles.mobile_navbar__logo_container}>
+                <Link to="/">
+                    <h1 className={styles.mobile_navbar__logo_title}>CoderMarket</h1>
+                </Link>
+                <button className={styles.mobile_navbar__menu_button} onClick={toggleMenu}>
+                    <span className={styles.menu_icon}>&#9776;</span> {/* Ícono de menú */}
                 </button>
             </div>
-            <ul className={`mobile-navbar__list ${isOpen ? 'open' : ''}`}>
-                <span className='button__close' onClick={() => setIsOpen(false)}>&times;</span>
+            <ul className={`${styles.mobile_navbar__list} ${isOpen ? styles.open : ''}`}>
+                <span className={styles.button__close} onClick={() => setIsOpen(false)}>&times;</span>
                 {itemsNavBar.map(item => (
-                    <li key={item.id} className='mobile-navbar__item'>
-                        <Link to={item.link} className='mobile-navbar__link'>
+                    <li key={item.id} className={styles.mobile_navbar__item}>
+                        <Link to={item.link} className={styles.mobile_navbar__link}>
                             {item.name}
                         </Link>
                         {item.subcategorias.length > 0 && (
-                            <ul className='mobile-navbar__sublist'>
+                            <ul className={styles.mobile_navbar__sublist}>
                                 {item.subcategorias.map(sub => (
-                                    <li key={sub.id} className='mobile-navbar__subitem'>
-                                        <Link to={`/category/${sub.name}`} className='mobile-navbar__sublink'>
+                                    <li key={sub.id} className={styles.mobile_navbar__subitem}>
+                                        <Link to={`/category/${sub.name}`} className={styles.mobile_navbar__sublink}>
                                             {sub.name}
                                         </Link>
                                         {sub.subcategorias?.length > 0 && (
-                                            <ul className='mobile-navbar__subsublist'>
+                                            <ul className={styles.mobile_navbar__subsublist}>
                                                 {sub.subcategorias.map(subsub => (
-                                                    <li key={subsub.id} className='mobile-navbar__subsubitem'>
-                                                        <Link to={`/category/${sub.name}/${subsub.name}`} className='mobile-navbar__subsublink'>
+                                                    <li key={subsub.id} className={styles.mobile_navbar__subsubitem}>
+                                                        <Link to={`/category/${sub.name}/${subsub.name}`} className={styles.mobile_navbar__subsublink}>
                                                             {subsub.name}
                                                         </Link>
                                                     </li>

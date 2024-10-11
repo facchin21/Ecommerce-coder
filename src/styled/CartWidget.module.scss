@@ -1,0 +1,23 @@
+@import "../global/styled.scss";
+
+.cart_widget {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    .cart__item{
+        z-index: 20;
+        cursor: pointer;
+    }
+    .notification_badge{
+        position: absolute;
+        top: -10px;
+        right: -20px;
+        background-color: $details-color; 
+        color: $text-color; 
+        border-radius: 50%;
+        padding: 0.2rem 0.8rem;
+        font-size: 0.8rem;
+        z-index: 10;
+    }
+}

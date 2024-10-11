@@ -9,7 +9,7 @@
 }
 
 // Logo
-.navbar__logo-title {
+.navbar__logo_title {
     font-size: 2.1rem;
     font-weight: 600;
     cursor: pointer;
@@ -98,28 +98,5 @@
     font-size: 1rem;
     &:hover{
         color: $text-color;
-    }
-}
-
-// estilos de marcador cantidades del cart
-.cart-widget {
-    position: relative;
-    display: flex;
-    align-items: center;
-
-    .cart__item{
-        z-index: 20;
-        cursor: pointer;
-    }
-    .notification-badge{
-        position: absolute;
-        top: -10px;
-        right: -20px;
-        background-color: $details-color; 
-        color: $text-color; 
-        border-radius: 50%;
-        padding: 0.2rem 0.8rem;
-        font-size: 0.8rem;
-        z-index: 10;
     }
 }

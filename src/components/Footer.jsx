@@ -1,19 +1,19 @@
 import { dataRedes, dataNosotros } from '../data/Footer.data'
 import { Link } from "react-router-dom"
-import "../styled/Footer.scss"
+import styles from "../styled/Footer.module.scss"
 
 
 export const Footer = () => {
     
     return (
-        <footer className="footer__container">
-            <div className="container__redes">
-                <h1 className="redes__title">Redes</h1>
+        <footer className={styles.footer__container}>
+            <div className={styles.container__redes}>
+                <h1 className={styles.redes__title}>Redes</h1>
                 <ul>
                     {dataRedes.map(red => (
                         <li key={red.id}>
                             <Link to={red.link}
-                            className="redes__link"
+                            className={styles.redes__link}
                             target="_blank">
                                 {red.name}
                             </Link>
@@ -21,14 +21,14 @@ export const Footer = () => {
                     ))}
                 </ul>
             </div>
-            <div className="container__nosotros">
-                <h1 className="nosotros__title">Sobre Nostros</h1>
+            <div className={styles.container__nosotros}>
+                <h1 className={styles.nosotros__title}>Sobre Nostros</h1>
                 <ul>
                     {
                         dataNosotros.map(data => (
                             <li key={data.id}>
                                 <Link to={data.link}
-                                className="nosotros__link">
+                                className={styles.nosotros__link}>
                                     {data.name}
                                 </Link>
                             </li>

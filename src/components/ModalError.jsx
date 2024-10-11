@@ -1,13 +1,13 @@
-import '../styled/ModalError.scss'
+import styles from '../styled/ModalError.module.scss'
 
 
 export const ModalError = ({message, onClose}) =>{
     return(
-        <div className='modal__backdrop'>
-            <div className='modal__content'>
+        <div className={styles.modal__backdrop}>
+            <div className={styles.modal__content}>
                 <p>{message}</p>
                 <button onClick={onClose}
-                className='modal__close'>Cerrar</button>
+                className={styles.modal__close}>Cerrar</button>
             </div>
         </div>
     )

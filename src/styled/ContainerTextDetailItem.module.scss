@@ -46,23 +46,6 @@
         padding: 0.3rem 0.7rem;
     }
 }
-
-.button__add-cart {
-    background-color: $text-color;
-    color: $primary-color;
-    padding: 1rem 2.3rem;
-    border-radius: 0.5rem;
-    border: none;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: 300ms ease-in-out;
-
-    &:hover{
-        color: $text-color;
-        background-color: $details-color;
-    }
-    @media (max-width: 986px) {
-        padding: 0.5rem 2rem;
-        width: 100%;
-    }
+.container__ItemCount{
+    margin-top: 2rem;
 }

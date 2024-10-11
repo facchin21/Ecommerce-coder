@@ -1,16 +1,16 @@
 @import '../global/styled.scss';
 
-.mobile-navbar__logo-container{
+.mobile_navbar__logo_container{
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 2rem 4rem;
 }
-.mobile-navbar__logo-title{
+.mobile_navbar__logo_title{
     font-size: 2rem;
     font-weight: 600;
 }
-.mobile-navbar__menu-button{
+.mobile_navbar__menu_button{
     font-size: 2rem;
     cursor: pointer;
     transition: all 300ms ease;
@@ -29,7 +29,7 @@
         color: $details-color;
     }
 }
-.mobile-navbar__list {
+.mobile_navbar__list {
     position: fixed;
     display: flex;
     flex-direction: column;
@@ -48,10 +48,10 @@
     transition: left 300ms ease-in-out;
 }
 
-.mobile-navbar__list.open {
+.mobile_navbar__list.open{
     left: 0;
 }
-.mobile-navbar__link{
+.mobile_navbar__link{
     font-size: 1.5rem;
     text-align: center;
     transition: all 300ms ease;
@@ -59,7 +59,7 @@
         color: $details-color;
     }
 }
-.mobile-navbar__sublist{
+.mobile_navbar__sublist{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -68,30 +68,30 @@
     padding: 0.5rem 1rem;
     gap: 1rem;
 }
-.mobile-navbar__sublink{
+.mobile_navbar__sublink{
     font-size: 1.3rem;
     transition: all 300ms ease-in-out;
     &:hover{
         color: $details-color;
     }
 }
-.mobile-navbar__subsublist{
+.mobile_navbar__subsublist{
     width: 100%;
     font-size: 0.8rem;
 }
-.mobile-navbar__item{
+.mobile_navbar__item{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-.mobile-navbar__subsubitem{
+.mobile_navbar__subsubitem{
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 1rem;
 }
-.mobile-navbar__subsublink{
+.mobile_navbar__subsublink{
     color: $primary-color;
     transition : 300ms ease-in-out;
     &:hover{

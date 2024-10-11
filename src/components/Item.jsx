@@ -1,22 +1,20 @@
+import styles from '../styled/Item.module.scss'
 import { Link } from 'react-router-dom'
-import '../styled/Item.scss'
-import React from 'react'
 
 export const Item = ({ product }) => {
-
   return (
     <>
       <Link to={`/item/${product.id}`}>
-        <article key={product.id} className='article__card'>
-          <div className='article__container-img'>
+        <article key={product.id} className={styles.article__card}>
+          <div className={styles.article__container_img}>
             <img src={product.pictureUrl}
               alt={product.title}
-              className='article__img' />
+              className={styles.article__img} />
           </div>
-          <div className='article__container'>
-            <h2 className='article__title'>{product.title}</h2>
-            <p className='article__descripction'>{product.description}</p>
-            <span className='article__price'>${product.price}</span>
+          <div className={styles.article__container}>
+            <h2 className={styles.article__title}>{product.title}</h2>
+            <p className={styles.article__descripction}>{product.description}</p>
+            <span className={styles.article__price}>${product.price}</span>
           </div>
         </article>
       </Link>

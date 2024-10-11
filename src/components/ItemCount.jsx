@@ -1,5 +1,5 @@
 import { useState } from "react";
-import '../styled/ItemCount.scss'
+import styles from '../styled/ItemCount.module.scss'
 import { ModalError } from "./ModalError";
 
 export const ItemCount = () => {
@@ -27,14 +27,15 @@ export const ItemCount = () => {
 
     return (
         <>
-            <div className="container__count">
-                <span className="count__decrement" onClick={onDecrement}> - </span>
+            <span>Cantidad:</span>
+            <div className={styles.container__count}>
+                <span className={styles.count__decrement} onClick={onDecrement}> - </span>
                 <span>
                     <span>{count}</span>
                 </span>
-                <span className="count__increment" onClick={onAdd}> + </span>
+                <span className={styles.count__increment} onClick={onAdd}> + </span>
             </div>
-            <button className="button__count-add">Agregar al Carrito</button>
+            <button className={styles.button__count_add}>Agregar al Carrito</button>
 
             {showModal && (
                 <ModalError

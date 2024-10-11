@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { CartWidget } from './CartWidget';
 import { MobileNavBar } from './MobileNavBar'
 import { NavBarList } from './NavBarList'
-import '../styled/NavBar.scss';
+import styles from '../styled/NavBar.module.scss';
 import { Link } from 'react-router-dom';
 
 export const NavBar = () => {
@@ -24,10 +24,10 @@ export const NavBar = () => {
         {isMobile ? (
             <MobileNavBar/>
         ) :(
-            <nav className='navbar__container'>
-                <div className='navbar__logo-container'>
+            <nav className={styles.navbar__container}>
+                <div className={styles.navbar__logo_container}>
                     <Link to="/">
-                        <h1 className='navbar__logo-title'>CoderMarket</h1>
+                        <h1 className={styles.navbar__logo_title}>CoderMarket</h1>
                     </Link>
                 </div>
                 <NavBarList items={itemsNavBar} /> {/* Usar el componente de listado */}

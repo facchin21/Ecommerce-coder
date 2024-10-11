@@ -1,14 +1,14 @@
-import '../styled/ContainerImageDetailItem.scss'
+import styles from '../styled/ContainerImageDetailItem.module.scss'
 
 export const ContainerImageDetailItem = ({ product }) => {
     return(
-        <div className="container__image">
-            <div className='container__image-three'>
+        <div className={styles.container__image}>
+            <div className={styles.container__image_three}>
                 <img src={product?.pictureUrl} alt={`Imagen de ${product?.title}`} />
                 <img src={product?.pictureUrl} alt={`Imagen de ${product?.title}`} />
                 <img src={product?.pictureUrl} alt={`Imagen de ${product?.title}`} />
             </div>
-            <div className='container__image-large'>
+            <div className={styles.container__image_large}>
                 <img src={product?.pictureUrl} alt={`Imagen de ${product?.title}`} />
             </div>
         </div>

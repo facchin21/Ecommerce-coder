@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom'
 import { useFetch } from '../hooks/useFetch'
 import { useEffect, useState } from 'react'
-import '../styled/ItemListContainer.scss'
+import styles from '../styled/ItemListContainer.module.scss'
 import { ItemList } from './ItemList'
 import { Loader } from './Loader'
 
@@ -33,7 +33,7 @@ export const ItemListContainer = ({ greeting }) => {
   }
 
   return (
-    <div className="ItemList__container">
+    <div className={styles.ItemList__container}>
       <h1>Bienvenidos a <span>{greeting}</span> !!</h1>
       <ItemList products={products} loading={loading} />
     </div>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import "../styled/PaymentMethod.scss"
+import styles from "../styled/PaymentMethod.module.scss"
 import { Icons } from "../data/Icons"
 
 export const PaymentMethod = () =>{
@@ -19,15 +19,15 @@ export const PaymentMethod = () =>{
     },[])
     return(
         <>
-            <span className='item__pagos'
+            <span className={styles.item__pagos}
             onClick={() => setIsVisible(true)}>Medios de pago</span>
 
             {isVisible && (
-                <div className='modal__backdrop'>
-                    <div className='modal__content'>
-                        <span className='modal__close'
+                <div className={styles.modal__backdrop}>
+                    <div className={styles.modal__content}>
+                        <span className={styles.modal__close}
                         onClick={() => setIsVisible(false)}>&times;</span>
-                        <div className="modal__container-icon">
+                        <div className={styles.modal__container_icon}>
                             {Icons.map(icon => (
                                 <img src={icon.icon} 
                                 alt={`Icono de ${icon.name}`}
