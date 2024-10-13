@@ -1,4 +1,4 @@
-import styles from '../styled/ContainerImageDetailItem.module.scss'
+import styles from '../../styled/ContainerImageDetailItem.module.scss'
 
 export const ContainerImageDetailItem = ({ product }) => {
     return(

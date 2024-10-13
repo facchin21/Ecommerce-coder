@@ -1,4 +1,4 @@
-import styles from '../styled/ContainerTextDetailItem.module.scss'
+import styles from '../../styled/ContainerTextDetailItem.module.scss'
 import React, { useEffect, useState } from 'react'
 import { PaymentMethod } from './PaymentMethod'
 import { ItemCount } from './ItemCount'

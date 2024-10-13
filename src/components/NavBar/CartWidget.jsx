@@ -1,4 +1,4 @@
-import styles from '../styled/CartWidget.module.scss'
+import styles from '../../styled/CartWidget.module.scss'
 import { FaShoppingCart } from "react-icons/fa"
 import { useState } from "react"
 

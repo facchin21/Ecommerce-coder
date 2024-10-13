@@ -1,6 +1,6 @@
-import React from 'react';
+import styles from '../../styled/NavBar.module.scss'
 import { Link } from 'react-router-dom';
-import styles from '../styled/NavBar.module.scss'
+import React from 'react';
 
 export const NavBarList = ({ items }) => {
     return (

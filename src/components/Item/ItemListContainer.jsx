@@ -1,7 +1,7 @@
-import { useFilteredProducts } from '../hooks/useFilteredProducts';
-import styles from '../styled/ItemListContainer.module.scss';
+import { useFilteredProducts } from '../../hooks/useFilteredProducts';
+import styles from '../../styled/ItemListContainer.module.scss';
 import { ItemList } from './ItemList';
-import { Loader } from './Loader';
+import { Loader } from '../Loader';
 
 export const ItemListContainer = ({ greeting }) => {
   const { products, message, loading } = useFilteredProducts();

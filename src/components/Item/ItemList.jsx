@@ -1,7 +1,7 @@
-import React from 'react'
-import { Loader } from './Loader';
-import styles from '../styled/ItemList.module.scss'
+import styles from '../../styled/ItemList.module.scss'
+import { Loader } from '../Loader';
 import { Item } from './Item';
+import React from 'react'
 
 export const ItemList = ({ products, loading, message }) => {
   return (

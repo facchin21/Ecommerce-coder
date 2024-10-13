@@ -1,6 +1,6 @@
+import styles from "../../styled/PaymentMethod.module.scss"
 import { useEffect, useState } from "react"
-import styles from "../styled/PaymentMethod.module.scss"
-import { Icons } from "../data/Icons"
+import { Icons } from "../../data/Icons"
 
 export const PaymentMethod = () =>{
     const [ isVisible, setIsVisible ] = useState(false)

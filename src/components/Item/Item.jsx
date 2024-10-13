@@ -1,4 +1,4 @@
-import styles from '../styled/Item.module.scss'
+import styles from '../../styled/Item.module.scss'
 import { Link } from 'react-router-dom'
 
 export const Item = ({ product }) => {

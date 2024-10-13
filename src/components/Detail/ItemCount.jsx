@@ -1,7 +1,7 @@
-import styles from '../styled/ItemCount.module.scss'
-import { ModalError } from "./ModalError";
-import { toast } from "react-toastify";
+import styles from '../../styled/ItemCount.module.scss'
 import { useEffect, useState } from "react";
+import { ModalError } from "../ModalError";
+import { toast } from "react-toastify";
 
 export const ItemCount = ({ stock, selectSize }) => {
     const [count, setCount] = useState(0);
@@ -46,7 +46,11 @@ export const ItemCount = ({ stock, selectSize }) => {
         if (!selectSize) {
             toast.info(`Por favor, selecciona un talle antes de agregar al carrito`)
         }
+        if(count === 0){
+            toast.info(`Por favor, seleciona la cantidad que deseas comprar`)
+        }
     }
+    
     return (
         <>
             <span>Cantidad:</span>

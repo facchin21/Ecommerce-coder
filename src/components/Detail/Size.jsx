@@ -1,4 +1,4 @@
-import styles from '../styled/Size.module.scss'
+import styles from '../../styled/Size.module.scss'
 
 export const Size = ({ size, selectSize, setSelectSize }) => {
     const handleState = () => {

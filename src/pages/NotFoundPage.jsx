@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import styles from '../styled/NotFound.module.scss'
 
-export const NotFound = () => {
+export const NotFoundPage = () => {
     return (
 
         <div className={styles.container__notFound}>

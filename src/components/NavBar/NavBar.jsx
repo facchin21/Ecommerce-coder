@@ -1,6 +1,6 @@
-import { itemsNavBar } from '../data/itemsNavBar'
-import styles from '../styled/NavBar.module.scss';
-import { MobileNavBar } from './MobileNavBar'
+import { itemsNavBar } from '../../data/itemsNavBar'
+import styles from '../../styled/NavBar.module.scss';
+import { MobileNavBar } from '../NavBar/MobileNavBar'
 import { useEffect, useState } from 'react';
 import { CartWidget } from './CartWidget';
 import { NavBarList } from './NavBarList'

@@ -1,8 +1,8 @@
-import { itemsNavBar } from '../data/itemsNavBar';
-import { CartWidget } from './CartWidget';
-import styles from '../styled/MobileNavBar.module.scss';
-import { useState } from 'react';
+import styles from '../../styled/MobileNavBar.module.scss';
+import { itemsNavBar } from '../../data/itemsNavBar';
+import { CartWidget } from '../NavBar/CartWidget';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 export const MobileNavBar = () => {
     const [isOpen, setIsOpen] = useState(false);

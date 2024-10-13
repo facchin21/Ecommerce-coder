@@ -1,10 +1,10 @@
-import { ContainerImageDetailItem } from './ContainerImageDetailItem';
-import { ContainerTextDetailItem } from './ContainerTextDetailItem';
+import { ContainerImageDetailItem } from '../Detail/ContainerImageDetailItem';
+import { ContainerTextDetailItem } from '../Detail/ContainerTextDetailItem';
+import styles from '../../styled/ItemListDetailContainer.module.scss';
 import React, { useEffect, useState } from 'react';
-import styles from '../styled/ItemListDetailContainer.module.scss'
+import { useFetch } from '../../hooks/useFetch';
 import { useParams } from 'react-router-dom';
-import { useFetch } from '../hooks/useFetch';
-import { Loader } from './Loader';
+import { Loader } from '../Loader';
 
 export const ItemListDetailContainer = () => {
   const [product, setProduct] = useState(null);
