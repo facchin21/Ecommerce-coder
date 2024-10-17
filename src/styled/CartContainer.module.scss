@@ -1,13 +1,31 @@
 @import "../global/styled.scss";
 
-.cart__container{
+.cart__container {
     visibility: hidden;
     opacity: 0;
     transition: visibility 0s 300ms, opacity 300ms ease-in-out;
     transform: translateX(100%);
+    --sb-track-color: #000000;
+    --sb-thumb-color: #e2ff04;
+    --sb-size: 14px;
+    cursor: pointer;
+
+    ::-webkit-scrollbar {
+        width: var(--sb-size);
+    }
+
+    ::-webkit-scrollbar-track {
+        background: var(--sb-track-color);
+        border-radius: 3px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: var(--sb-thumb-color);
+        border-radius: 3px;
+    }
 }
 
-.cart__visible{
+.cart__visible {
     visibility: visible;
     opacity: 1;
     transition: opacity 300ms ease-in-out;
@@ -23,7 +41,7 @@
 
 }
 
-.cart__button_closed{
+.cart__button_closed {
     position: absolute;
     top: 25px;
     left: 25px;
@@ -35,45 +53,54 @@
         color: $details-color;
     }
 }
-.cart__message{
+
+.cart__message {
     font-size: 1.2rem;
     text-align: center;
 }
-.cart__container_items{
+
+.cart__container_items {
     display: flex;
     flex-direction: column;
     gap: 1rem;
     padding: 5rem 1rem 2rem 1rem;
     max-height: 80vh;
-    overflow-y: auto; 
+    overflow-y: auto;
 }
-.total__container_count{
+
+.total__container_count {
     padding: 1rem;
 }
-.total__count_title{
+
+.total__count_title {
     font-size: 1rem;
 }
-.container__total{
+
+.container__total {
     display: flex;
     justify-content: start;
     align-items: center;
     padding: 0.5rem 1rem;
     gap: 1rem;
-}   
-.total__subtitle{
+}
+
+.total__subtitle {
     font-size: 1.4rem;
     font-weight: 600;
 }
-.total__price{
+
+.total__price {
     font-size: 1.4rem;
 }
-.container__button{
+
+.container__button {
     display: flex;
     margin: 3rem 0;
     place-content: center;
     width: 100%;
 }
-.button__buy{
+
+.button__buy {
     cursor: pointer;
     width: 80%;
     padding: 0.7rem 0;
@@ -82,7 +109,7 @@
     background: $primary-color;
     transition: all 300ms ease-in-out;
 
-    &:hover{
+    &:hover {
         background-color: $details-color;
     }
 }

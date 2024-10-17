@@ -1,6 +1,6 @@
 import styles from '../../styled/CartContainer.module.scss'
 import { Cart } from "../../contexts/CartProvider"
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import { ItemCart } from './ItemCart'
 
 export const CartContainer = () => {
@@ -9,6 +9,18 @@ export const CartContainer = () => {
     const toggleMenu = () => {
         toggleCartVisibility();
     };
+    useEffect(() => {
+        if (isVisible) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "auto";
+        }
+
+        // Cleanup on component unmount
+        return () => {
+            document.body.style.overflow = "auto";
+        };
+    }, [isVisible]);
 
     return (
         <div className={`${styles.cart__container} ${isVisible ? styles.cart__visible : ''}`}>
