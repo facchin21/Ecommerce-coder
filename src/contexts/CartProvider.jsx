@@ -25,7 +25,7 @@ export const CartProvider = ({ children }) => {
                 if (cartProduct.id === product.id) {
                     return {
                         ...cartProduct,
-                        quantity: (cartProduct.quantity || 0) + productQuantity 
+                        quantity: (cartProduct.quantity || 0) + productQuantity
                     };
                 }
                 return cartProduct; // Devuelve el producto sin cambios si no es el que estás actualizando

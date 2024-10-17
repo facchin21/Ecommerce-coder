@@ -24,10 +24,12 @@ export const CartContainer = () => {
                     ))
                 )}
             </div>
+            <div className={styles.total__container_count}>
+                <h2 className={styles.total__count_title}>Productos totales: {quantityTotal}</h2>
+            </div>
             <div className={styles.container__total}>
-                <h2>Productos totales: {quantityTotal}</h2>
                 <h2 className={styles.total__subtitle}>Total:</h2>
-                <span className={styles.total__price}>${totalPrice}</span>
+                <span className={styles.total__price}>${totalPrice.toLocaleString('es-AR')}</span>
             </div>
             <div className={styles.container__button}>
                 <button className={styles.button__buy}>Pagar Aqui</button>
