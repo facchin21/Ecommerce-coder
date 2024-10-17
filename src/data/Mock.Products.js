@@ -15,6 +15,8 @@ export const products = [
       L: 8,
       XL: 2,
     },
+    quantity: 0,
+    sizeSelect: '',
   },
   {
     id: 2,
@@ -31,6 +33,8 @@ export const products = [
       L: 3,
       XL: 6,
     },
+    quantity: 0,
+    sizeSelect: '',
   },
   {
     id: 3,
@@ -48,6 +52,8 @@ export const products = [
       L: 3,
       XL: 2,
     },
+    quantity: 0,
+    sizeSelect: '',
   },
   {
     id: 4,
@@ -64,6 +70,8 @@ export const products = [
       8: 8,
       10: 2,
     },
+    quantity: 0,
+    sizeSelect: '',
   },
   {
     id: 5,
@@ -80,6 +88,8 @@ export const products = [
       8: 4,
       10: 6,
     },
+    quantity: 0,
+    sizeSelect: '',
   },
   {
     id: 6,
@@ -95,6 +105,8 @@ export const products = [
       6: 5,
       8: 3,
     },
+    quantity: 0,
+    sizeSelect: '',
   },
   {
     id: 7,
@@ -110,6 +122,8 @@ export const products = [
       6: 4,
       8: 2,
     },
+    quantity: 0,
+    sizeSelect: '',
   },
   {
     id: 8,
@@ -125,6 +139,8 @@ export const products = [
       L: 6,
       XL: 2,
     },
+    quantity: 0,
+    sizeSelect: '',
   },
   {
     id: 9,
@@ -140,6 +156,8 @@ export const products = [
       M: 2,
       L: 3,
     },
+    quantity: 0,
+    sizeSelect: '',
   },
   {
     id: 10,
@@ -153,6 +171,8 @@ export const products = [
     stock: {
       Única: 20,
     },
+    quantity: 0,
+    sizeSelect: '',
   },
   {
     id: 11,
@@ -166,6 +186,8 @@ export const products = [
     stock: {
       Única: 15,
     },
+    quantity: 0,
+    sizeSelect: '',
   },
   {
     id: 12,
@@ -179,6 +201,8 @@ export const products = [
     stock: {
       Única: 15,
     },
+    quantity: 0,
+    sizeSelect: '',
   },
   {
     id: 13,
@@ -195,6 +219,8 @@ export const products = [
       M: 8,
       L: 3,
     },
+    quantity: 0,
+    sizeSelect: '',
   },
   {
     id: 14,
@@ -210,6 +236,8 @@ export const products = [
       6: 4,
       8: 2,
     },
+    quantity: 0,
+    sizeSelect: '',
   },
   {
     id: 15,
@@ -225,6 +253,8 @@ export const products = [
       6: 3,
       8: 2,
     },
+    quantity: 0,
+    sizeSelect: '',
   },
   {
     id: 16,
@@ -237,69 +267,11 @@ export const products = [
     subcategory: "Camisas",
     sizes: ["M", "L", "XL"],
     stock: {
-      M: 6,
+      M: 5,
       L: 3,
       XL: 2,
     },
-  },
-  {
-    id: 17,
-    title: "Chaqueta de niño",
-    description: "Chaqueta liviana, ideal para entretiempo.",
-    price: 6000,
-    pictureUrl: "https://via.placeholder.com/150/4682B4?text=Chaqueta+Niño",
-    category: "Niño",
-    subcategory: "Chaquetas",
-    sizes: ["4", "6", "8"],
-    stock: {
-      4: 5,
-      6: 4,
-      8: 2,
-    },
-  },
-  {
-    id: 18,
-    title: "Cinturón de cuero",
-    description: "Cinturón de cuero clásico y elegante.",
-    price: 3200,
-    pictureUrl: "https://via.placeholder.com/150/8B4513?text=Cinturon+Cuero",
-    category: "Accesorio",
-    subcategory: "Cinturones",
-    sizes: ["S", "M", "L"],
-    stock: {
-      S: 4,
-      M: 6,
-      L: 3,
-    },
-  },
-  {
-    id: 19,
-    title: "Pantalón Jogger (Hombre)",
-    description: "Jogger cómodos, perfectos para el deporte.",
-    price: 4800,
-    pictureUrl:
-      "https://via.placeholder.com/150/708090?text=Pantalon+Jogger+Hombre",
-    category: "Hombre",
-    subcategory: "Pantalones",
-    sizes: ["M", "L"],
-    stock: {
-      M: 4,
-      L: 3,
-    },
-  },
-  {
-    id: 20,
-    title: "Blusa de seda (Mujer)",
-    description: "Blusa de seda suave, ideal para ocasiones elegantes.",
-    price: 8700,
-    pictureUrl: "https://via.placeholder.com/150/FAF0E6?text=Blusa+Seda+Mujer",
-    category: "Mujer",
-    subcategory: "Blusas",
-    sizes: ["S", "M", "L"],
-    stock: {
-      S: 5,
-      M: 3,
-      L: 4,
-    },
+    quantity: 0,
+    sizeSelect: '',
   },
 ];

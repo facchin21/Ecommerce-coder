@@ -35,7 +35,9 @@ export const ContainerTextDetailItem = ({ product }) => {
             
             {/* Componente para agregar al carrito y ademas saber cuantos */}
             <div className={styles.container__ItemCount}>
-                <ItemCount stock={product?.stock} selectSize={selectSize}/>
+                <ItemCount stock={product?.stock}
+                 selectSize={selectSize}
+                 product={product}/>
             </div>
         </div>
     )

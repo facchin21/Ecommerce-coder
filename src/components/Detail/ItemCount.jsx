@@ -1,12 +1,14 @@
 import styles from '../../styled/ItemCount.module.scss'
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { Cart } from '../../contexts/CartProvider';
 import { ModalError } from "../ModalError";
 import { toast } from "react-toastify";
 
-export const ItemCount = ({ stock, selectSize }) => {
+export const ItemCount = ({ stock, selectSize, product }) => {
     const [count, setCount] = useState(0);
     const [showModal, setShowModal] = useState(false);
     const [stockDisponible, setStockDisponible] = useState(0);
+    const { addCart } = useContext(Cart)
 
     useEffect(() => {
         if (stock && selectSize !== undefined) {
@@ -21,9 +23,9 @@ export const ItemCount = ({ stock, selectSize }) => {
         }
     }, [selectSize, stock]);
     const onAdd = () => {
-        if(!selectSize){
-           toast.info("Por favor, selecciona un talle antes de elegir la cantidad")
-        }else{
+        if (!selectSize) {
+            toast.info("Por favor, selecciona un talle antes de elegir la cantidad")
+        } else {
             if (count < stockDisponible) {
                 setCount(prevCount => prevCount + 1);
             } else {
@@ -46,11 +48,13 @@ export const ItemCount = ({ stock, selectSize }) => {
         if (!selectSize) {
             toast.info(`Por favor, selecciona un talle antes de agregar al carrito`)
         }
-        if(count === 0){
+        else if (count === 0) {
             toast.info(`Por favor, seleciona la cantidad que deseas comprar`)
+        }else{
+            addCart(product, count, selectSize)
         }
     }
-    
+
     return (
         <>
             <span>Cantidad:</span>
