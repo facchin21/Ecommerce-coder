@@ -28,8 +28,14 @@ export const ItemListDetailContainer = () => {
     <article className={styles.container}>
       {product ? (
         <>
+        <div className={styles.container__product}>
           <ContainerImageDetailItem product={product} />
           <ContainerTextDetailItem product={product} />
+        </div>
+        <div className={styles.container__description}>
+            <h1>Detalles del producto</h1>
+            <p>{product.description}</p>
+        </div>
         </>
         ):
       (

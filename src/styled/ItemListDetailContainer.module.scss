@@ -1,6 +1,6 @@
 @import '../global/styled.scss';
 
-.container{
+.container__product{
     display: flex;
     flex-direction: row;
     gap: 2rem;
@@ -11,5 +11,15 @@
     @media (max-width : 820px){
         flex-direction: column;
         padding: 4rem;
+    }
+}
+.container{
+    display: flex;
+    flex-direction: column;
+}
+.container__description{
+    padding: 4rem 12rem;
+    @media (max-width : 820px){
+        padding: 2rem 6rem;
     }
 }
