@@ -1,0 +1,61 @@
+@import '../global/styled.scss';
+
+.container_image {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  .image__hero {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+
+  .image__frame_left,
+  .image__frame {
+    position: absolute;
+    top: 50%; 
+    cursor: pointer;
+    margin: 0 6rem;
+    transform: translateY(-50%);
+    &.image__frame_left {
+      left: 0;
+      transform: translateY(-50%) translateX(-20%); 
+      width: 70px;
+    }
+
+    &.image__frame {
+      right: 0;
+      transform: translateY(-50%) translateX(20%);
+      width: 70px; 
+    }
+  }
+
+  .title__hero {
+    position: relative;
+    color: white; 
+    font-size: 7rem;
+    z-index: 1; 
+  }
+}
+
+@media (max-width: 768px) {
+  .container_image {
+    .title__hero {
+      font-size: 2rem;
+    }
+
+    .image__frame_left, .image__frame {
+      width: 70px;
+    }
+  }
+}

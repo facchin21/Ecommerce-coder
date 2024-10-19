@@ -8,6 +8,7 @@ import { ContactPage } from "./pages/ContactPage"
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify"
 import { AboutPage } from "./pages/AboutPage"
+import { HomePage } from "./pages/HomePage";
 import { Layout } from "./layout/Layout"
 
 function App() {
@@ -20,14 +21,15 @@ function App() {
           <ToastContainer />
           <Routes>
             {/* Rutas para la entrega */}
-            <Route path="/" element={<ItemListContainer greeting={title} />} />
+            <Route path="/" element={<HomePage/>}/>
             <Route path="/item/:id" element={<ItemListDetailContainer />} />
             <Route path="/category/:categoryId"
-              element={<ItemListContainer greeting={title} />} />
+              element={<ItemListContainer/>} />
             {/* Rutas Extras */}
-            <Route path="/category/" element={<ItemListContainer greeting={title} />} />
+            <Route path="/productos" element={<ItemListContainer/>} />
+            <Route path="/category/" element={<ItemListContainer/>} />
             <Route path="/category/:categoryId/:subcategoryId"
-              element={<ItemListContainer greeting={title} />} />
+              element={<ItemListContainer/>} />
             <Route path="/nosotros" element={<AboutPage />} />
             <Route path="/contacto" element={<ContactPage />} />
             <Route path="*" element={<NotFoundPage />} />

@@ -5,7 +5,7 @@ export const Layout = ({ children }) => {
     return (
         <>
             <NavBar />
-            <main style={{minHeight : '70vh'}}>
+            <main style={{minHeight : '70vh', overflowX : 'hidden'}}>
                 {children}
             </main>
             <Footer />

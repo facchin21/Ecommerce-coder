@@ -1,9 +1,15 @@
 export const itemsNavBar = [
   {
-    id: "01",
+    id: "00",
     name: "inicio",
     link: "/",
     subcategorias: [],
+  },
+  {
+    id : '01',
+    name : 'Productos',
+    link: 'productos',
+    subcategorias : [],
   },
   {
     id: "02",
