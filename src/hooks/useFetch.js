@@ -1,34 +1,33 @@
 import { useEffect, useState } from "react";
-import { products } from '../data/Mock.Products'
+// import { products } from '../data/Mock.Products'
+import { db } from "../firebase/config";
+import { collection, getDocs } from "firebase/firestore";
 
-export function useFetch () {
-    const [allProducts, setAllProducts] = useState([])
-    const [error, setError] = useState('');
-    const [loading, setLoading] = useState(false)
-  
+export function useFetch() {
+  const [allProducts, setAllProducts] = useState([]);
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
   useEffect(() => {
-    setLoading(true);
-    const promiceProducts = new Promise((resolve, reject) => {
-      setTimeout(() => {
-        if (products.length > 0) {
-          resolve(products);
-        } else {
-          reject("No se encontraron Productos.");
-        }
-      }, 2000);
-    });
+    const getProducts = async () => {
+      setLoading(true);
+      try {
+        const querySnapshot = await getDocs(collection(db, "productos"));
+        const productsList = querySnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setAllProducts(productsList);
+      } catch (error) {
+        console.error("Error fetching products: ", error);
+        setError("No hay productos encontrados");
+      } finally {
+        setLoading(false);
+      }
+    };
 
-    promiceProducts
-      .then((res) => {
-        setAllProducts(res);
-        setError('');
-      })
-      .catch((err) => {
-        console.log(err);
-        setError(err);
-      }).finally(() => {
-        setLoading(false)
-      })
+    getProducts();
   }, []);
-    return{ allProducts, error, loading }
+
+  return { allProducts, error, loading };
 }

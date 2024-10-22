@@ -1,0 +1,105 @@
+@import '../global/styled.scss';
+
+.formContainer {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: $primary-color;
+  padding: $spacing-large;
+  border-radius: $border-radius;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    font-size: $font-size-heading;
+    margin-bottom: $spacing-large;
+    color: $text-color;
+    text-align: center; // Centramos el título
+  }
+
+  .formGroup {
+    margin-bottom: $spacing-large;
+
+    label {
+      display: block;
+      font-size: $font-size-base;
+      margin-bottom: $spacing-small;
+      color: $text-color;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: $spacing-small;
+      border: 1px solid $secondary-color;
+      border-radius: $border-radius;
+      background-color: $secondary-color;
+      color: $text-color;
+      font-size: $font-size-base;
+
+      &:focus {
+        outline: none;
+        border-color: $details-color;
+      }
+    }
+
+    textarea {
+      resize: vertical;
+    }
+  }
+
+  .submitButton {
+    width: 100%;
+    padding: $spacing-medium;
+    background-color: $details-color;
+    color: $text-color;
+    border: none;
+    border-radius: $border-radius;
+    font-size: $font-size-base;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: darken($details-color, 10%);
+    }
+  }
+
+  .addButton {
+    margin-top: $spacing-small;
+    background-color: $details-color;
+    color: $text-color;
+    padding: $spacing-small;
+    border: none;
+    border-radius: $border-radius;
+    font-size: $font-size-base;
+    cursor: pointer;
+
+    &:hover {
+      background-color: lighten($details-color, 10%);
+    }
+  }
+
+  .sizeStockRow {
+    display: flex;
+    justify-content: space-between;
+    gap: $spacing-small;
+    margin-bottom: $spacing-small;
+
+    input {
+      width: 48%;
+    }
+  }
+}
+
+.removeButton {
+  color: #5a5a5a;
+  border: none;
+  padding: $spacing-small;
+  cursor: pointer;
+  border-radius: $border-radius;
+  margin-left: $spacing-small;
+  transition: color 0.3s;
+
+  &:hover {
+    color: black;
+  }
+}

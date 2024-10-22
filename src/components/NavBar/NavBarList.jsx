@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 export const NavBarList = ({ items }) => {
     return (
-        <ul className={styles.navbar__list}s>
+        <ul className={styles.navbar__list}>
             {items.map(item => (
                 <li key={item.id} className={styles.navbar__item}>
                     <Link to={item.link} className={styles.navbar__link}>

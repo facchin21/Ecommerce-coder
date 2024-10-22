@@ -1,86 +1,93 @@
-import { createContext, useEffect, useState } from "react"
+import { createContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
-export const Cart = createContext()
+export const Cart = createContext();
 
 export const CartProvider = ({ children }) => {
     const [cart, setCart] = useState([]);
     const [quantityTotal, setQuantityTotal] = useState(0);
-    const [isVisible, setIsVisible] = useState(false)
-    const [totalPrice , setTotalPrice] = useState(0)
+    const [isVisible, setIsVisible] = useState(false);
+    const [totalPrice, setTotalPrice] = useState(0);
 
     const addCart = (product, productQuantity, selectSize) => {
-        
-        if (!isStockAvailable(product.stock[selectSize])) {
-            toast.error(`Lo siento, no es posible agregar mas ${product.title} por falta de stock`);
+        // Obtener el objeto de tamaño correspondiente del producto
+        const sizeObj = product.sizes.find(item => item.size === selectSize);
+        const stockAvailable = sizeObj ? sizeObj.stock : 0;
+
+        // Calcular la cantidad total de ese producto en el carrito
+        const totalInCart = cart.reduce((acc, cartProduct) => {
+            if (cartProduct.id === product.id && cartProduct.sizeSelect === selectSize) {
+                return acc + cartProduct.quantity;
+            }
+            return acc;
+        }, 0);
+
+        // Verificar si hay suficiente stock disponible
+        if (totalInCart + productQuantity > stockAvailable) {
+            toast.error(`Lo siento, no es posible agregar más ${product.title} por falta de stock`);
             return;
         }
 
-        const productInCart = isExits(product.id);
-        let cartUpdated = [...cart];
+        // Actualizar el carrito
+        const productInCart = cart.find(cartProduct => cartProduct.id === product.id && cartProduct.sizeSelect === selectSize);
+        let updatedCart = [...cart];
 
         if (productInCart) {
-            cartUpdated = cart.map(cartProduct => {
-
-                if (cartProduct.id === product.id) {
+            updatedCart = cart.map(cartProduct => {
+                if (cartProduct.id === product.id && cartProduct.sizeSelect === selectSize) {
                     return {
                         ...cartProduct,
-                        quantity: (cartProduct.quantity || 0) + productQuantity
+                        quantity: cartProduct.quantity + productQuantity,
                     };
                 }
-                return cartProduct; // Devuelve el producto sin cambios si no es el que estás actualizando
+                return cartProduct;
             });
         } else {
-            cartUpdated.push({ ...product, quantity: productQuantity, sizeSelect: selectSize});
-            toast.success(`Se agrego ${product.title} con exito!`)
+            updatedCart.push({ ...product, quantity: productQuantity, sizeSelect: selectSize });
+            toast.success(`Se agregó ${product.title} con éxito!`);
         }
 
-        setCart(cartUpdated);
-        updateQuantityTotal(cartUpdated);
-    }
+        setCart(updatedCart);
+        updateQuantityTotal(updatedCart);
+    };
 
-    const isStockAvailable = (stockSelect) => {
-        return cart.reduce((acc, product) => acc + product.quantity, 0) < stockSelect;
-    }
-    
     const updateQuantityTotal = (updatedCart) => {
-        const total = updatedCart.reduce((acc, cartProduct) => acc + cartProduct.quantity, 0)
-        setQuantityTotal(total)
-    }
+        const total = updatedCart.reduce((acc, cartProduct) => acc + cartProduct.quantity, 0);
+        setQuantityTotal(total);
+        getTotalPrice(updatedCart); // Actualiza el precio total cada vez que se actualiza la cantidad
+    };
 
-    const isExits = (productId) => {
-        return cart.some(cartProduct => cartProduct.id === productId)
-    }
-
-    const toggleCartVisibility = () => {
-        setIsVisible(prev => !prev)
-    }
+    const getTotalPrice = (updatedCart) => {
+        const newPrice = updatedCart.reduce((acc, product) => acc + product.quantity * product.price, 0);
+        setTotalPrice(newPrice);
+    };
 
     const removeCartItem = (productId) => {
-        const newCart = cart.filter(cartProduct => cartProduct.id !== productId)
-        setCart(newCart)
+        const newCart = cart.filter(cartProduct => cartProduct.id !== productId);
+        setCart(newCart);
         updateQuantityTotal(newCart);
-        getTotalPrice(newCart);
-    }
-    const getTotalPrice = () =>{
-        const newPrice = cart.reduce((acc, product) => acc + product.quantity * product.price, 0)
-        setTotalPrice(newPrice)
-    }
+    };
+
+    const toggleCartVisibility = () => {
+        setIsVisible(prev => !prev);
+    };
 
     useEffect(() => {
-        getTotalPrice();
+        // Puedes manejar el efecto aquí si necesitas realizar algún cálculo adicional al cargar
+        getTotalPrice(cart);
     }, [cart]);
 
     return (
-        <Cart.Provider value={{ cart,
-         addCart,
-         quantityTotal,
-         isVisible,
-         toggleCartVisibility,
-         removeCartItem,
-         totalPrice
-          }}>
+        <Cart.Provider value={{
+            cart,
+            addCart,
+            quantityTotal,
+            isVisible,
+            toggleCartVisibility,
+            removeCartItem,
+            totalPrice
+        }}>
             {children}
         </Cart.Provider>
     );
-}
+};

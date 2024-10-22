@@ -1,0 +1,15 @@
+@import "../global/styled.scss";
+
+.welcomeContainer {
+    text-align: center;
+    color: $text-color;
+  
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+  
+    p {
+      font-size: 1.2rem;
+    }
+  }
