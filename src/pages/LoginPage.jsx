@@ -16,7 +16,7 @@ export function LoginPage() {
     try {
       // Intentar iniciar sesión con las credenciales de Firebase
       await signInWithEmailAndPassword(auth, email, password);
-      navigate('/dashboard'); // Redirige al dashboard si el login es exitoso
+      navigate('/dashboard/welcome'); // Redirige al dashboard si el login es exitoso
     } catch (err) {
       setError('Login failed. Please check your credentials.');
     }
