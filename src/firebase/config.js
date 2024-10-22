@@ -4,9 +4,10 @@ import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 import { getStorage } from "firebase/storage";
 
+const apiKey = import.meta.env.VITE_API_KEY;
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCSiSqvkHQKJ-NM-Be2p5GRpFEeIhrchPY",
+  apiKey: apiKey,
   authDomain: "codermarket-f3fff.firebaseapp.com",
   projectId: "codermarket-f3fff",
   storageBucket: "codermarket-f3fff.appspot.com",
