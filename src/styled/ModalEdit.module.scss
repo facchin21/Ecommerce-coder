@@ -1,6 +1,5 @@
 @import '../global/styled.scss';
 
-
 .modalBackdrop {
   position: fixed;
   top: 0;
@@ -40,12 +39,27 @@
   width: 100%;
   max-height: 90%;
   overflow-y: auto;
+  animation: fadeIn 0.3s ease;
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 }
 
 .modalTitle {
   font-size: $font-size-heading;
   margin-bottom: $spacing-medium;
   color: $text-color;
+  text-align: center;
+  font-weight: bold;
 }
 
 .formGroup {
@@ -66,6 +80,12 @@
     border-radius: $border-radius;
     font-size: $font-size-base;
     color: $text-color;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+    &:focus {
+      border-color: $details-color;
+      box-shadow: 0 0 5px rgba($details-color, 0.5);
+    }
   }
 
   .textareaField {
@@ -85,14 +105,45 @@
   .sizeGroup {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-bottom: $spacing-small;
-
+    padding: $spacing-small;
+    border: 1px solid $text-link;
+    border-radius: $border-radius;
+    background-color: rgba(255, 255, 255, 0.1);
+    gap: 1rem;
     .inputFieldSmall {
-      width: 40%;
+      width: 42%;
       padding: $spacing-small;
       border: 1px solid $text-link;
       border-radius: $border-radius;
       font-size: $font-size-base;
+    }
+
+    .removeButton {
+      color: $text-color;
+      border: none;
+      padding: $spacing-small;
+      cursor: pointer;
+      border-radius: $border-radius;
+      margin-left: $spacing-small;
+      transition: color 0.3s;
+
+      &:hover {
+        color: darken($text-color, 85%);
+      }
+    }
+
+    .reorderHandle {
+      cursor: grab;
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      color: $details-color;
+      
+      &:active {
+        cursor: grabbing;
+      }
     }
   }
 }
@@ -109,10 +160,11 @@
     border: none;
     border-radius: $border-radius;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s;
 
     &:hover {
       background-color: darken($details-color, 10%);
+      transform: translateY(-2px);
     }
   }
 
@@ -123,23 +175,20 @@
     border: none;
     border-radius: $border-radius;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s;
 
     &:hover {
       background-color: darken($secondary-color, 10%);
+      transform: translateY(-2px);
     }
   }
 }
 
-.formGroup {
-  margin-bottom: 1.5rem;
-}
-
-select {
+.select {
   width: 100%;
-  padding: 0.75rem;
+  padding: $spacing-small;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: $border-radius;
   background-color: #fff;
   font-size: 1rem;
   color: #333;
@@ -153,14 +202,15 @@ select {
   &:focus {
     outline: none;
     border-color: $details-color;
-    box-shadow: 0 0 5px rgba(225, 255, 0, 0.5);
+    box-shadow: 0 0 5px rgba($details-color, 0.5);
+  }
+
+  option {
+    padding: $spacing-small;
+    font-size: 1rem;
   }
 }
 
-option {
-  padding: 0.5rem;
-  font-size: 1rem;
-}
 .removeButton {
   color: #5a5a5a;
   border: none;
@@ -174,17 +224,24 @@ option {
     color: #fa6666;
   }
 }
+
 .addButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3rem;
   margin-top: $spacing-small;
-  background-color: $details-color;
-  color: $text-color;
+  background-color: $text-color;
+  color: $primary-color;
   padding: $spacing-small;
   border: none;
   border-radius: $border-radius;
   font-size: $font-size-base;
   cursor: pointer;
+  transition: background-color 300ms ease, transform 0.3s;
 
   &:hover {
-    background-color: lighten($details-color, 10%);
+    background-color: lighten($text-color, 30%);
+    transform: translateY(-2px);
   }
 }

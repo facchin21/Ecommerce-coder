@@ -1,26 +1,26 @@
 import { getCategories } from '../functions/getCategorys';
 import styles from '../styled/ModalEdit.module.scss';
 import React, { useEffect, useState } from 'react';
+import { Reorder } from "framer-motion";
+import { FaGripVertical, FaPlus, FaTrash } from 'react-icons/fa';
 
 export const ModalEdit = ({ product, onSave, onClose, onImageUpload }) => {
   const [updatedProduct, setUpdatedProduct] = useState({ ...product });
   const [selectedImage, setSelectedImage] = useState(null);
-  const [categoriesOption, setCategoriesOption] = useState([])
-  const [subCategoriesOption, setSubCategoriesOption] = useState([])
+  const [categoriesOption, setCategoriesOption] = useState([]);
+  const [subCategoriesOption, setSubCategoriesOption] = useState([]);
   const [category, setCategory] = useState('');
   const [subcategory, setSubcategory] = useState('');
-  const [sizes, setSizes] = useState([{ size: '', stock: '' }]);
-
 
   useEffect(() => {
-    const categories = getCategories()
-    setCategoriesOption(categories)
-  }, [])
+    const categories = getCategories();
+    setCategoriesOption(categories);
+  }, []);
 
   const handleCategoryChange = (e) => {
     const selectedCategory = e.target.value;
     setCategory(selectedCategory);
-    setSubcategory(''); // Reset subcategory
+    setSubcategory('');
     const subcategories = categoriesOption.find((cat) => cat.name === selectedCategory)?.subcategorias || [];
     setSubCategoriesOption(subcategories);
   };
@@ -34,7 +34,6 @@ export const ModalEdit = ({ product, onSave, onClose, onImageUpload }) => {
   };
 
   const handleRemoveSize = (index) => {
-    // Evitar eliminar el último talle
     if (updatedProduct.sizes.length > 1) {
       const updatedSizes = updatedProduct.sizes.filter((_, idx) => idx !== index);
       setUpdatedProduct({ ...updatedProduct, sizes: updatedSizes });
@@ -123,7 +122,7 @@ export const ModalEdit = ({ product, onSave, onClose, onImageUpload }) => {
         </div>
 
         <div className={styles.formGroup}>
-          <label>Categoría:</label>
+          <label>Categoría Actual: {product.category}</label>
           <select
             value={category}
             onChange={handleCategoryChange}
@@ -139,10 +138,12 @@ export const ModalEdit = ({ product, onSave, onClose, onImageUpload }) => {
         </div>
 
         <div className={styles.formGroup}>
-          <label>Subcategoría</label>
+          <label>Subcategoría Actual: {product.subcategory}</label>
           <select
             value={subcategory}
-            onChange={(e) => setSubcategory(e.target.value)}>
+            onChange={(e) => setSubcategory(e.target.value)}
+            className={styles.select}
+          >
             <option value="">Seleccione una subcategoría</option>
             {subCategoriesOption.map((sub) => (
               <option key={sub.id} value={sub.name}>
@@ -152,30 +153,45 @@ export const ModalEdit = ({ product, onSave, onClose, onImageUpload }) => {
           </select>
         </div>
 
+        {/* Sección de tamaños con reordenamiento */}
         <div className={styles.sizesContainer}>
           <h3>Tamaños y stock:</h3>
-          {updatedProduct.sizes.map((sizeObj, index) => (
-            <div key={index} className={styles.sizeGroup}>
-              <input
-                type="text"
-                value={sizeObj.size}
-                onChange={(e) => handleSizeChange(index, e.target.value, 'size')}
-                className={styles.inputFieldSmall}
-              />
-              <input
-                type="number"
-                value={sizeObj.stock}
-                onChange={(e) => handleSizeChange(index, e.target.value, 'stock')}
-                className={styles.inputFieldSmall}
-              />
-              <button type="button" onClick={() => handleRemoveSize(index)}
-                className={styles.removeButton}>
-                Eliminar
-              </button>
-            </div>
-          ))}
+          <Reorder.Group
+            axis="y"
+            onReorder={(newOrder) => setUpdatedProduct({ ...updatedProduct, sizes: newOrder })}
+            values={updatedProduct.sizes}
+          >
+            {updatedProduct.sizes.map((sizeObj, index) => (
+              <Reorder.Item
+                key={index}
+                value={sizeObj}
+                className={styles.sizeGroup}
+                whileDrag={{ scale: 1.04 }} 
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              >
+                <input
+                  type="text"
+                  value={sizeObj.size}
+                  onChange={(e) => handleSizeChange(index, e.target.value, 'size')}
+                  className={styles.inputFieldSmall}
+                />
+                <input
+                  type="number"
+                  value={sizeObj.stock}
+                  onChange={(e) => handleSizeChange(index, e.target.value, 'stock')}
+                  className={styles.inputFieldSmall}
+                />
+                <button type="button" onClick={() => handleRemoveSize(index)} className={styles.removeButton}>
+                  <FaTrash />
+                </button>
+                <div className={styles.reorderHandle}>
+                  <FaGripVertical />
+                </div>
+              </Reorder.Item>
+            ))}
+          </Reorder.Group>
           <button type="button" onClick={handleAddSize} className={styles.addButton}>
-            Agregar Talle
+            <FaPlus /> Agregar Talle
           </button>
         </div>
 
