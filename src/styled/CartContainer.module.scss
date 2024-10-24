@@ -1,6 +1,7 @@
 @import "../global/styled.scss";
 
 .cart__container {
+    display: none;
     visibility: hidden;
     opacity: 0;
     transition: visibility 0s 300ms, opacity 300ms ease-in-out;
@@ -26,6 +27,7 @@
 }
 
 .cart__visible {
+    display: block;
     visibility: visible;
     opacity: 1;
     transition: opacity 300ms ease-in-out;

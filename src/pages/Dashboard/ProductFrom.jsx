@@ -3,7 +3,7 @@ import { db, storage } from '../../firebase/config';
 import { collection, addDoc } from 'firebase/firestore';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import styles from '../../styled/ProductFrom.module.scss';
-import { itemsNavBar } from '../../data/itemsNavBar';
+import { getCategories } from '../../functions/getCategorys';
 
 export function ProductForm() {
   const [productName, setProductName] = useState('');
@@ -19,14 +19,14 @@ export function ProductForm() {
   const [subcategoryOptions, setSubcategoryOptions] = useState([]);
 
   useEffect(() => {
-    const categories = itemsNavBar[2].subcategorias;
+    const categories = getCategories()
     setCategoryOptions(categories);
   }, []);
 
   const handleCategoryChange = (e) => {
     const selectedCategory = e.target.value;
     setCategory(selectedCategory);
-    setSubcategory(''); // Reinicia la subcategoría
+    setSubcategory(''); // Reset subcategory
     const subcategories = categoryOptions.find((cat) => cat.name === selectedCategory)?.subcategorias || [];
     setSubcategoryOptions(subcategories);
   };
@@ -50,7 +50,7 @@ export function ProductForm() {
   };
 
   const handlePictureChange = (e) => {
-    setPictureFile(e.target.files[0]); // Almacena el archivo seleccionado
+    setPictureFile(e.target.files[0]); // Store the selected file
   };
 
   const handleSubmit = async (e) => {
@@ -58,17 +58,17 @@ export function ProductForm() {
     setLoading(true);
     setError(null);
 
-    let pictureUrl = ''; // Inicializa la URL de la imagen
+    let pictureUrl = ''; // Initialize picture URL
 
-    // Sube la imagen a Firebase Storage
+    // Upload image to Firebase Storage
     if (pictureFile) {
-      const pictureRef = ref(storage, `images/${pictureFile.name}`); // Crea una referencia para el archivo
+      const pictureRef = ref(storage, `images/${pictureFile.name}`); // Create a reference for the file
       try {
-        await uploadBytes(pictureRef, pictureFile); // Sube el archivo
-        pictureUrl = await getDownloadURL(pictureRef); // Obtiene la URL de descarga
+        await uploadBytes(pictureRef, pictureFile); // Upload the file
+        pictureUrl = await getDownloadURL(pictureRef); // Get the download URL
       } catch (error) {
-        console.error('Error al subir la imagen: ', error);
-        setError('Error al subir la imagen');
+        console.error('Error uploading image: ', error);
+        setError('Error uploading image');
         setLoading(false);
         return;
       }
@@ -79,7 +79,7 @@ export function ProductForm() {
         title: productName,
         description,
         price: parseFloat(price),
-        pictureUrl, // Usa la URL de la imagen subida
+        pictureUrl, // Use the uploaded image URL
         category,
         subcategory,
         sizes: sizes.map(({ size, stock }) => ({ size, stock: parseInt(stock, 10) })),
@@ -88,21 +88,21 @@ export function ProductForm() {
         createdAt: new Date(),
       });
 
-      // Limpiar el formulario
+      // Clear the form
       setProductName('');
       setDescription('');
       setPrice('');
-      setPictureFile(null); // Reinicia el archivo de imagen
+      setPictureFile(null); // Reset the image file
       setCategory('');
       setSubcategory('');
       setSizes([{ size: '', stock: '' }]);
       setLoading(false);
     } catch (error) {
-      console.error('Error al cargar el producto: ', error);
-      setError('Hubo un error al cargar el producto');
+      console.error('Error uploading product: ', error);
+      setError('Error uploading product');
       setLoading(false);
     }
-  };
+  }
 
   return (
     <div className={styles.formContainer}>
@@ -139,7 +139,7 @@ export function ProductForm() {
           <label>Imagen</label>
           <input
             type="file"
-            accept="image/*" // Acepta solo imágenes
+            accept="image/*" // Accept only images
             onChange={handlePictureChange}
             required
           />
@@ -175,7 +175,6 @@ export function ProductForm() {
           </select>
         </div>
 
-        {/* Manejo de tallas dinámicas */}
         <div className={styles.formGroup}>
           <label>Tallas y Stock</label>
           {sizes.map((sizeObj, index) => (

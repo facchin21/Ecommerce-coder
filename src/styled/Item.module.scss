@@ -2,11 +2,12 @@
 
 
 .article__card {
+    position: relative;
     background-color: $primary-color;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    height: 400px;
+    height: 450px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     width: 280px;
     @media (max-width: 768px) {
@@ -81,4 +82,11 @@
             }
         }
     }
+}
+.container__button_edit{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    bottom: 10px;
+    width: 100%;
 }

@@ -1,0 +1,190 @@
+@import '../global/styled.scss';
+
+
+.modalBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  --sb-track-color: $primary-color;
+  --sb-thumb-color: #c4c4c4;
+  --sb-size: 14px;
+
+  ::-webkit-scrollbar {
+    width: var(--sb-size);
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--sb-track-color);
+    border-radius: 33px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color);
+    border-radius: 33px;
+  }
+}
+
+.modalContent {
+  background-color: $primary-color;
+  padding: $spacing-large;
+  border-radius: $border-radius;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  max-width: 600px;
+  width: 100%;
+  max-height: 90%;
+  overflow-y: auto;
+}
+
+.modalTitle {
+  font-size: $font-size-heading;
+  margin-bottom: $spacing-medium;
+  color: $text-color;
+}
+
+.formGroup {
+  margin-bottom: $spacing-medium;
+
+  label {
+    font-size: $font-size-base;
+    color: $text-color;
+    display: block;
+    margin-bottom: $spacing-small;
+  }
+
+  .inputField,
+  .textareaField {
+    width: 100%;
+    padding: $spacing-small;
+    border: 1px solid $text-link;
+    border-radius: $border-radius;
+    font-size: $font-size-base;
+    color: $text-color;
+  }
+
+  .textareaField {
+    height: 100px;
+    resize: none;
+  }
+}
+
+.sizesContainer {
+  margin-top: $spacing-medium;
+
+  h3 {
+    margin-bottom: $spacing-small;
+    color: $text-color;
+  }
+
+  .sizeGroup {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: $spacing-small;
+
+    .inputFieldSmall {
+      width: 40%;
+      padding: $spacing-small;
+      border: 1px solid $text-link;
+      border-radius: $border-radius;
+      font-size: $font-size-base;
+    }
+  }
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: space-between;
+  margin-top: $spacing-medium;
+
+  .saveButton {
+    background-color: $details-color;
+    color: $text-color;
+    padding: $spacing-small $spacing-medium;
+    border: none;
+    border-radius: $border-radius;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: darken($details-color, 10%);
+    }
+  }
+
+  .cancelButton {
+    background-color: $secondary-color;
+    color: $text-link;
+    padding: $spacing-small $spacing-medium;
+    border: none;
+    border-radius: $border-radius;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: darken($secondary-color, 10%);
+    }
+  }
+}
+
+.formGroup {
+  margin-bottom: 1.5rem;
+}
+
+select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  font-size: 1rem;
+  color: #333;
+  appearance: none;
+  background-image: url('/path/to/arrow-icon.svg');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+  &:focus {
+    outline: none;
+    border-color: $details-color;
+    box-shadow: 0 0 5px rgba(225, 255, 0, 0.5);
+  }
+}
+
+option {
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+.removeButton {
+  color: #5a5a5a;
+  border: none;
+  padding: $spacing-small;
+  cursor: pointer;
+  border-radius: $border-radius;
+  margin-left: $spacing-small;
+  transition: color 0.3s;
+
+  &:hover {
+    color: #fa6666;
+  }
+}
+.addButton {
+  margin-top: $spacing-small;
+  background-color: $details-color;
+  color: $text-color;
+  padding: $spacing-small;
+  border: none;
+  border-radius: $border-radius;
+  font-size: $font-size-base;
+  cursor: pointer;
+
+  &:hover {
+    background-color: lighten($details-color, 10%);
+  }
+}

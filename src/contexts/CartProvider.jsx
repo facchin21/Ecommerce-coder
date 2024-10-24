@@ -4,10 +4,21 @@ import { toast } from "react-toastify";
 export const Cart = createContext();
 
 export const CartProvider = ({ children }) => {
-    const [cart, setCart] = useState([]);
+    const initialCart = JSON.parse(localStorage.getItem('productsCart')) || [];
+    
+    const [cart, setCart] = useState(initialCart);
     const [quantityTotal, setQuantityTotal] = useState(0);
     const [isVisible, setIsVisible] = useState(false);
     const [totalPrice, setTotalPrice] = useState(0);
+
+    useEffect(() => {
+        updateQuantityTotal(cart)
+    },[])
+
+    // Guardar carrito en el localStorage cada vez que se actualize
+    useEffect(() => {
+        localStorage.setItem('productsCart', JSON.stringify(cart))
+    }, [cart])
 
     const addCart = (product, productQuantity, selectSize) => {
         // Obtener el objeto de tamaño correspondiente del producto
@@ -73,7 +84,6 @@ export const CartProvider = ({ children }) => {
     };
 
     useEffect(() => {
-        // Puedes manejar el efecto aquí si necesitas realizar algún cálculo adicional al cargar
         getTotalPrice(cart);
     }, [cart]);
 

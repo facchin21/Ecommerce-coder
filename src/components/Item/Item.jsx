@@ -1,7 +1,10 @@
+import { useAuth } from '../../contexts/AuthProvider';
 import styles from '../../styled/Item.module.scss'
+import { ButtonEdit } from '../ButtonEdit';
 import { Link } from 'react-router-dom'
 
 export const Item = ({ product }) => {
+  const { user } = useAuth();
   return (
     <>
       <Link to={`/item/${product.id}`}>
@@ -16,6 +19,11 @@ export const Item = ({ product }) => {
             <p className={styles.article__descripction}>{product.description}</p>
             <span className={styles.article__price}>${product.price}</span>
           </div>
+          {user && (
+            <div className={styles.container__button_edit}>
+              <ButtonEdit product={product}/>
+            </div>
+          )}
         </article>
       </Link>
     </>

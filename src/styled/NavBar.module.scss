@@ -3,7 +3,7 @@
 // Contenedor de la navbar
 .navbar__container {
     display: flex;
-    justify-content: space-around ;
+    justify-content: space-around;
     align-items: center;
     padding: 2rem 8rem;
 }
@@ -63,14 +63,15 @@
     position: absolute;
     top: 100%;
     left: 0;
-    width: 100vw; // Ocupa el 100% del ancho de la pantalla
+    right: 0;
+    width: 100vw;
     background-color: $secondary-color;
     padding: 3rem 0;
     margin: 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     list-style: none;
     z-index: 100;
-    transform: translateX(-54%); // Alinea la sublista al centro
+    transform: translateX(-56%); // Alinea la sublista al centro
     text-align: center;
     justify-content: center;
     align-items: flex-start;

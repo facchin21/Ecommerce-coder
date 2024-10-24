@@ -11,6 +11,7 @@ import { PrivateRoute } from './PrivateRoute';
 import { AuthProvider } from '../contexts/AuthProvider';
 import { WelcomePage } from '../pages/Dashboard/WelcomePage'
 import { ProductForm } from '../pages/Dashboard/ProductFrom';
+import { ProductEdit } from '../pages/Dashboard/ProductEdit';
 
 export function AppRouter() {
   return (
@@ -31,6 +32,8 @@ export function AppRouter() {
         <Route path="/dashboard" element={<PrivateRoute><AdminDashboard /></PrivateRoute>}>
           <Route path="welcome" element={<PrivateRoute><WelcomePage /></PrivateRoute>} />
           <Route path="productos" element={<PrivateRoute><ProductForm /></PrivateRoute>} />
+          <Route path="listproducts" element={<PrivateRoute><ItemListContainer/></PrivateRoute>}/>
+          <Route path="edit/:productId" element={<PrivateRoute><ProductEdit></ProductEdit></PrivateRoute>}/>
         </Route>
 
         {/* Ruta de error para cualquier página no encontrada */}
