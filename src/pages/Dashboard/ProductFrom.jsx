@@ -4,6 +4,7 @@ import { collection, addDoc } from 'firebase/firestore';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import styles from '../../styled/ProductFrom.module.scss';
 import { getCategories } from '../../functions/getCategorys';
+import { toast } from 'react-toastify';
 
 export function ProductForm() {
   const [productName, setProductName] = useState('');
@@ -87,7 +88,7 @@ export function ProductForm() {
         sizeSelect: '',
         createdAt: new Date(),
       });
-
+      toast.success('Producto cargado exitosamente');
       // Clear the form
       setProductName('');
       setDescription('');
@@ -95,11 +96,13 @@ export function ProductForm() {
       setPictureFile(null); // Reset the image file
       setCategory('');
       setSubcategory('');
+      setPictureFile(null);
       setSizes([{ size: '', stock: '' }]);
       setLoading(false);
     } catch (error) {
       console.error('Error uploading product: ', error);
       setError('Error uploading product');
+      toast.error('Error al cargar el producto');
       setLoading(false);
     }
   }

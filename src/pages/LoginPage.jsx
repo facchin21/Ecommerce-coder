@@ -17,7 +17,7 @@ export function LoginPage() {
       await signInWithEmailAndPassword(auth, email, password);
       navigate('/dashboard/welcome'); // Redirige al dashboard si el login es exitoso
     } catch (err) {
-      setError('Login failed. Please check your credentials.');
+      setError('Algo salió mal. Por favor, inténtalo de nuevo.');
     }
   };
 

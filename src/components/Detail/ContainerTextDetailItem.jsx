@@ -1,4 +1,3 @@
-// ContainerTextDetailItem.jsx
 import styles from '../../styled/ContainerTextDetailItem.module.scss';
 import React, { useEffect, useState } from 'react';
 import { PaymentMethod } from './PaymentMethod';

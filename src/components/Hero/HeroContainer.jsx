@@ -2,34 +2,33 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import YellowImage from '../../assets/image/hero/rack-with-yellow.avif';
 import ClotingImage from '../../assets/image/hero/clothing.avif';
-import FrameImageLeft from '../../assets/image/Frame-left.png';
 import BigImage from '../../assets/image/hero/big-green.avif';
 import SpringImage from '../../assets/image/hero/spring.avif';
 import SummerImage from '../../assets/image/hero/summer.avif';
 import ModerImage from '../../assets/image/hero/modern.avif';
 import styles from '../../styled/HeroContainer.module.scss';
 import FrameImage from '../../assets/image/Frame.png';
+import FrameImageLeft from '../../assets/image/Frame-left.png';
+
+const heroImages = [
+    YellowImage,
+    ClotingImage,
+    BigImage,
+    SpringImage,
+    SummerImage,
+    ModerImage,
+];
 
 export const HeroContainer = ({ title }) => {
-    const heroImages = [
-        YellowImage,
-        ClotingImage,
-        BigImage,
-        SpringImage,
-        SummerImage,
-        ModerImage,
-    ];
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
     const handleNextImage = () => {
-        setCurrentImageIndex((prevIndex) =>
-            prevIndex === heroImages.length - 1 ? 0 : prevIndex + 1
-        );
+        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroImages.length);
     };
 
     const handlePrevImage = () => {
         setCurrentImageIndex((prevIndex) =>
-            prevIndex === 0 ? heroImages.length - 1 : prevIndex - 1
+            (prevIndex - 1 + heroImages.length) % heroImages.length
         );
     };
 

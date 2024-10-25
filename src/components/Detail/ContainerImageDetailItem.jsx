@@ -1,4 +1,6 @@
 import styles from '../../styled/ContainerImageDetailItem.module.scss'
+import Zoom from 'react-medium-image-zoom';
+import 'react-medium-image-zoom/dist/styles.css';
 
 export const ContainerImageDetailItem = ({ product }) => {
     return(
@@ -9,7 +11,10 @@ export const ContainerImageDetailItem = ({ product }) => {
                 <img src={product?.pictureUrl} alt={`Imagen de ${product?.title}`} />
             </div>
             <div className={styles.container__image_large}>
-                <img src={product?.pictureUrl} alt={`Imagen de ${product?.title}`} />
+                <Zoom>
+                    <img src={product?.pictureUrl} 
+                alt={`Imagen de ${product?.title}`} />
+                </Zoom>
             </div>
         </div>
     )

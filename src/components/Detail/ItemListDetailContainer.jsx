@@ -2,9 +2,9 @@ import { ContainerImageDetailItem } from '../Detail/ContainerImageDetailItem';
 import { ContainerTextDetailItem } from '../Detail/ContainerTextDetailItem';
 import styles from '../../styled/ItemListDetailContainer.module.scss';
 import React, { useEffect, useState } from 'react';
-import { db } from '../../firebase/config';
 import { doc, getDoc } from 'firebase/firestore';
 import { useParams } from 'react-router-dom';
+import { db } from '../../firebase/config';
 import { Loader } from '../Loader';
 
 export const ItemListDetailContainer = () => {
@@ -37,9 +37,11 @@ export const ItemListDetailContainer = () => {
     <article className={styles.container}>
       {product ? (
         <>
-          <div className={styles.container__product}>
-            <ContainerImageDetailItem product={product} />
-            <ContainerTextDetailItem product={product} />
+          <div className={styles.container__products}>
+            <div className={styles.container__product}>
+              <ContainerImageDetailItem product={product} />
+              <ContainerTextDetailItem product={product} />
+            </div>
           </div>
           <div className={styles.container__description}>
             <h1>Detalles del producto</h1>
