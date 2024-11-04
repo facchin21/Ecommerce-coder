@@ -70,7 +70,22 @@ En esta segunda pre-entrega se desarrolló la **navegabilidad básica** de la ap
 
 ---
 
+## 📦 Dependencias Utilizadas
+
+- **react-router-dom**: Utilizada para implementar la navegación en la aplicación. Permite la creación de rutas dinámicas que mejoran la experiencia del usuario al navegar entre el catálogo y los detalles de los productos.
+- **sass**: Elegida para el manejo de estilos debido a sus características avanzadas de CSS, como la anidación y las variables, que ayudan a mantener un código más limpio y modular.
+- **react-icons**: Incluida para facilitar el uso de iconos en los componentes, como el ícono del carrito en el `CartWidget`. Proporciona una gran colección de iconos personalizables.
+- **firebase/firestore**: Elegida como backend y base de datos en tiempo real, ideal para manejar el almacenamiento y la sincronización de datos de la tienda de forma rápida y escalable.
+-**framer-motion**: Utilizada para animaciones en el Hero principal del home.
+-**React-medium-image-zoom**: Utilizada en el detalle del producto, para poder acceder al zoom de una imagen.
+-**React-toastify** : Utilizada para las notificaciones en la app.
+
 ---
+
+
+<!-- ## 🎥 Demostración
+
+[Ver demostración en vivo]() -->
 
 ## 🎥 Gif demostracion
 

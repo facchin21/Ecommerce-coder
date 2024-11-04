@@ -1,10 +1,10 @@
-import styles from '../../styled/CartContainer.module.scss'
-import { Cart } from "../../contexts/CartProvider"
-import { useContext, useEffect, useState } from "react"
-import { CheckoutModal } from '../checkoutModal'
-import { ItemCart } from './ItemCart'
-import { toast } from 'react-toastify';
 import { handleSubmitOrder } from '../../services/CreateOrder'
+import styles from '../../styled/CartContainer.module.scss'
+import { useContext, useEffect, useState } from "react"
+import { Cart } from "../../contexts/CartProvider"
+import { CheckoutModal } from '../CheckoutModal'
+import { toast } from 'react-toastify';
+import { ItemCart } from './ItemCart'
 
 export const CartContainer = () => {
     const { cart, clearCart, isVisible, toggleCartVisibility, totalPrice, quantityTotal } = useContext(Cart)
@@ -20,8 +20,6 @@ export const CartContainer = () => {
         } else {
             document.body.style.overflow = "auto";
         }
-
-        // Cleanup on component unmount
         return () => {
             document.body.style.overflow = "auto";
         };
@@ -38,7 +36,7 @@ export const CartContainer = () => {
 
     const handleOrderSubmit = async (orderData) => {
         await handleSubmitOrder(orderData, cart, totalPrice, clearCart);
-        // setIsModalOpen(false);
+        setIsModalOpen(false);
     };
 
     return (
