@@ -9,9 +9,7 @@ export function AuthProvider({ children }) {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
-    const adminEmails = [
-        import.meta.env.VITE_ADMIN_EMAIL
-    ];
+    const adminEmails = ['codermarket00@gmail.com']
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {

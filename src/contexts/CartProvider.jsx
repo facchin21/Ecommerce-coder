@@ -87,10 +87,16 @@ export const CartProvider = ({ children }) => {
         getTotalPrice(cart);
     }, [cart]);
 
+    const clearCart = () => {
+        setCart([]);
+        setQuantityTotal(0);
+        setTotalPrice(0)
+    }
     return (
         <Cart.Provider value={{
             cart,
             addCart,
+            clearCart,
             quantityTotal,
             isVisible,
             toggleCartVisibility,
