@@ -82,10 +82,9 @@ En esta segunda pre-entrega se desarrolló la **navegabilidad básica** de la ap
 
 ---
 
+## 🎥 Demostración
 
-<!-- ## 🎥 Demostración
-
-[Ver demostración en vivo]() -->
+[Ver demostración en vivo](https://codermarket.netlify.app/)
 
 ## 🎥 Gif demostracion
 
